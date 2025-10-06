@@ -1,0 +1,25 @@
+export const lightTheme = {
+    name: 'light',
+    text: '#333446',
+    bg: '#EEEEEE',
+    blue: '#7F8CAA',
+    teal: '#B8CFCE',
+    gray: '#AEAEAE',
+    information: '#202234',
+    success: '#123524',
+    warning: '#F2C265',
+    error: '#990000'
+}
+
+export const darkTheme = {
+    name: 'dark',
+    bg: '#333446',
+    text: '#EEEEEE',
+    blue: '#80A6FF',
+    teal: '#AEEAE7',
+    gray: '#D0D0DD',
+    information: '#C9E6F0',
+    success: '#9EDF9C',
+    warning: '#FCFFC1',
+    error: '#FAD4D4'
+}

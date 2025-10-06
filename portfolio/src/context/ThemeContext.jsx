@@ -1,0 +1,26 @@
+import React, {createContext, useState, useContext1, useContext} from "react";
+import PropTypes from 'prop-types';
+import { lightTheme, darkTheme } from "src/styles/theme";
+import {ThemeProvider as StyledThemeProvider} from 'styled-components';
+
+const ThemeContext = createContext();
+
+export const ThemeProvider = ({children}) => {
+    const [currentTheme, setCurrentTheme] = useState(lightTheme);
+
+    const toggleTheme = () => {
+        setCurrentTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
+    };
+
+    return(
+        <ThemeContext.Provider value={{currentTheme, toggleTheme}}>
+            <StyledThemeProvider theme={currentTheme}>{children}</StyledThemeProvider>
+        </ThemeContext.Provider>
+    )
+}
+
+export const useTheme =() => {return useContext(ThemeContext)};
+
+ThemeContextProvider.propTypes = {
+  children: PropTypes.node.isRequired
+}
