@@ -5,7 +5,7 @@ import {ThemeProvider as StyledThemeProvider} from 'styled-components';
 
 const ThemeContext = createContext();
 
-export const ThemeProvider = ({children}) => {
+export const ThemeContextProvider = ({children}) => {
     const [currentTheme, setCurrentTheme] = useState(lightTheme);
 
     const toggleTheme = () => {
