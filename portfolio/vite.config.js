@@ -11,6 +11,7 @@ export default defineConfig({
       styles: path.resolve(__dirname, 'src/styles'),
       fonts: path.resolve(__dirname, 'src/fonts'),
       context: path.resolve(__dirname, 'src/context'),
+      utils: path.resolve(__dirname, 'src/utils')
     }
   }
 })
