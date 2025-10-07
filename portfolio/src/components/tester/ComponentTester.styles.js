@@ -22,7 +22,7 @@ export const WideComponent = styled.div`
 
 export const SmallComponent = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(2vw,1fr));
     grid-template-rows: 5%;
     gap: 0.25rem;
     height: ${(props) => props.$smallComponentHeight};
@@ -30,4 +30,4 @@ export const SmallComponent = styled.div`
     border: ${v.borderThickness.medium} solid blue;
 `;
 
-export default {TesterWrapper,WideComponent,SmallComponent}
+export default {TesterWrapper, WideComponent, SmallComponent}
