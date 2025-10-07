@@ -12,15 +12,22 @@ export const TesterWrapper = styled.div`
     place-items: center;
 `;
 
-export const WideComponent = styled.div.attrs(props => ({
-    wideComponentWidth: props.wideComponentWidth,
-    wideComponentHeight: props.wideComponentHeight
-}))`
+export const WideComponent = styled.div`
     display: flex;
     place-items: center;
-    height: ${(wideComponentHeight) => wideComponentHeight};
-    width: ${(wideComponentWidth) => wideComponentWidth};
+    height: ${(props) => props.$wideComponentHeight};
+    width: ${(props) => props.$wideComponentWidth};
     border: ${v.borderThickness.medium} solid red;
 `;
 
-export default {TesterWrapper,WideComponent}
+export const SmallComponent = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 5%;
+    gap: 0.25rem;
+    height: ${(props) => props.$smallComponentHeight};
+    width: ${(props) => props.$smallComponentWidth};
+    border: ${v.borderThickness.medium} solid blue;
+`;
+
+export default {TesterWrapper,WideComponent,SmallComponent}

@@ -2,24 +2,33 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as styled from './ComponentTester.styles.js';
 
-const ComponentTester = ({ wideComponent }) => {
+const ComponentTester = ({ wideComponent, smallComponent }) => {
 
     return (
         <styled.TesterWrapper>
             <styled.WideComponent
-                $wideComponentWidth={wideComponent.width}
-                $wideComponentHeight={wideComponent.height}
-            >{wideComponent.element}</styled.WideComponent>
+                $wideComponentWidth={wideComponent?.width || ''}
+                $wideComponentHeight={wideComponent?.height || ''}
+            >{wideComponent?.element}</styled.WideComponent>
+            <styled.SmallComponent
+                $smallComponentWidth={smallComponent?.width || ''}
+                $smallComponentHeight={smallComponent?.height || ''}
+            >{smallComponent?.element}</styled.SmallComponent>
         </styled.TesterWrapper>
     )
 }
 
 ComponentTester.propTypes = {
-    children: PropTypes.node.isRequired
+    wideComponent: PropTypes.shape({
+        width: PropTypes.string,
+        height: PropTypes.string,
+        element: PropTypes.node
+    }),
+    smallComponent:  PropTypes.shape({
+        width: PropTypes.string,
+        height: PropTypes.string,
+        element: PropTypes.node
+    })
 }
 
 export default ComponentTester;
-
-ComponentTester.PropTypes ={
-    wideComponent: PropTypes.object
-}

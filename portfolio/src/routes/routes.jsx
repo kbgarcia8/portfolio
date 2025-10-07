@@ -1,11 +1,15 @@
 import { element } from "prop-types";
 import React from "react";
+/* Tester */
+import ComponentTester from "components/tester/ComponentTester";
 /* Main Layout */
-import MainLayout from "src/components/layout/MainLayout/MainLayout";
+import MainLayout from "components/layout/MainLayout/MainLayout";
 
 const routes =[
     {
         path: "/",
-        element: <MainLayout/>
+        element: <ComponentTester/>
     }
-]
+];
+
+export default routes;

@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import GlobalStyle from './styles/globalStyles';
 import { createRoot } from 'react-dom/client'
-//import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import routes from "./routes/routes"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import routes from "./routes/routes.jsx"
 import { ThemeContextProvider } from './context/ThemeContext.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,13 +11,13 @@ import warningIcon from './assets/warning.png'
 import successIcon from './assets/success.png'
 import infoIcon from './assets/info.svg'
 
-//const router = createBrowserRouter(routes);
-//<RouterProvider router={router} />
+const router = createBrowserRouter(routes);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeContextProvider>
       <GlobalStyle />
-      
+      <RouterProvider router={router} />
       <ToastContainer 
         position="top-right" 
         autoClose={5000} 

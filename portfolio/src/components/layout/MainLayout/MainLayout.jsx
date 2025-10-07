@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Outlet } from 'react-router-dom';
-import { getScrollbarWidth } from 'src/utils/utils.js'
+import { getScrollbarWidth } from 'utils/utils.js'
 import * as styled from "./MainLayout.styles.js";
 import PropTypes from "prop-types";
 

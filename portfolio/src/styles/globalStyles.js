@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { v } from './variables.js';
-import comfortaa from "src/fonts/Comfortaa-Regular.ttf";
-import lato from "src/fonts/Lato-Regular.ttf";
-import raleway from "src/fonts/Raleway-Regular.ttf";
+import comfortaa from "fonts/Comfortaa-Regular.ttf";
+import lato from "fonts/Lato-Regular.ttf";
+import raleway from "fonts/Raleway-Regular.ttf";
 import { lightTheme, darkTheme } from './theme.js';
 
 const GlobalStyle = createGlobalStyle`
