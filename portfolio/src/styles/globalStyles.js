@@ -35,7 +35,7 @@ html, body {
     padding: 0;
     display: flex;
     place-items: center;
-    font-size: calc(0.125vmin + ${v.base.fontSize});
+    font-size: calc(0.075vmin + ${v.base.fontSize});
     max-width: 100vw;
 }
 

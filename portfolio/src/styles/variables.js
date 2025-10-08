@@ -1,6 +1,6 @@
 export const v = {
     base: {
-        fontSize: '16px',
+        fontSize: '14px',
         spacing: '24px',
         lineHeight: '1.25rem',
     },
@@ -40,6 +40,7 @@ export const v = {
         xxxlarge: '8.5rem',
     },
     borderRadius: {
+        xsmall: '0.125rem',
         small: '0.25rem',
         medium: '0.5rem',
         large: '1rem',

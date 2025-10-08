@@ -11,12 +11,17 @@ export const DefaultButton = styled.button`
     border-radius: ${v.borderRadius.xlarge};
     padding: ${v.spacing.xxxsmall} ${v.spacing.small};
     margin: 0.125rem;
-    width: 100%;
+    width: 75%;
+    height: 2.5vh;
     cursor: pointer;
 
     &:hover {
         background-color: ${props => props.$hoverColor || 'lightblue'};
         border: ${v.borderThickness.light} solid ${props => props.$hoverBorderColor || 'gray'};
+    }
+
+    & .button-icon-text-space {
+        width: 100%;
     }
 `;
 
@@ -26,10 +31,6 @@ export const ButtonTextAndIconSpace = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-`;
-
-export const ButtonSVG = styled.svg`
-    width: 100%;
 `;
 
 export const ButtonIcon = styled.img`

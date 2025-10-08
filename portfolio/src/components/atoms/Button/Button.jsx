@@ -33,7 +33,7 @@ const Button = ({
             {...dataAttributes}
         >
             <styled.ButtonTextAndIconSpace className={"button-icon-text-space"}>
-                {source ? <styled.ButtonIcon src={source} alt={alt} /> : svg ? <styled.ButtonSVG/> : ''}
+                {source ? <styled.ButtonIcon src={source} alt={alt} /> : svg ? svg : ''}
                 {text && <styled.ButtonText id={id} >{text}</styled.ButtonText>}
             </styled.ButtonTextAndIconSpace>
         </styled.DefaultButton>
@@ -43,11 +43,17 @@ const Button = ({
 Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     id: PropTypes.string,
-    buttonType: PropTypes.string,
+    buttonType: PropTypes.oneOf(['button', 'submit', 'reset']),
     source: PropTypes.string,
     alt: PropTypes.string,
     text: PropTypes.string,
     className: PropTypes.string,
+    bgColor: PropTypes.string,
+    lineColor: PropTypes.string,
+    borderColor: PropTypes.string,
+    hoverColor: PropTypes.string,
+    hoverBorderColor: PropTypes.string,
+    dataAttributes: PropTypes.object,
 }
 
 export default Button;
