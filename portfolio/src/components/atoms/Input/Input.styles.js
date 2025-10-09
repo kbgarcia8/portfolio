@@ -16,7 +16,7 @@ export const DefaultInput = styled.input`
     border-radius: ${v.borderRadius.xsmall};
 
     &:focus{
-        ${v.borderThickness.thin} solid ${({theme}) => theme.teal};
+        border: ${v.borderThickness.thin} solid ${({theme}) => theme.teal};
     }
 `;
 

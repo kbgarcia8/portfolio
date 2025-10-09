@@ -8,6 +8,8 @@ const ThemeContext = createContext();
 export const ThemeContextProvider = ({children}) => {
     const [currentTheme, setCurrentTheme] = useState(lightTheme);
 
+    console.log(currentTheme)
+
     const toggleTheme = () => {
         setCurrentTheme((prevTheme) => (prevTheme === lightTheme ? darkTheme : lightTheme));
     };

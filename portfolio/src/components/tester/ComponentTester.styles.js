@@ -21,12 +21,13 @@ export const WideComponentSpace = styled.div`
     border: ${v.borderThickness.medium} solid red;
 `;
 
-export const WideComponent = styled.div`
+export const WideComponentContainer = styled.div`
     display: flex;
     place-items: center;
     height: ${(props) => props.$wideComponentHeight};
     width: ${(props) => props.$wideComponentWidth};
     border: ${v.borderThickness.medium} solid black;
+    margin-block: ${v.spacing.xxsmall};
 `;
 
 export const SmallComponentSpace = styled.div`

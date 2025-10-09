@@ -8,10 +8,10 @@ const ComponentTester = ({ wideComponents, smallComponents }) => {
         <styled.TesterWrapper>
             <styled.WideComponentSpace>
                 {wideComponents?.map((component, index) => (
-                    <styled.WideComponent key={index}
+                    <styled.WideComponentContainer key={index}
                         $wideComponentWidth={component?.width || ''}
                         $wideComponentHeight={component?.height || ''}
-                    >{component?.element}</styled.WideComponent>
+                    >{component?.element}</styled.WideComponentContainer>
                 ))}
             </styled.WideComponentSpace>
             <styled.SmallComponentSpace>

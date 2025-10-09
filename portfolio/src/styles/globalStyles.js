@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { v } from './variables.js';
-import comfortaa from "fonts/Comfortaa-Regular.ttf";
-import lato from "fonts/Lato-Regular.ttf";
-import raleway from "fonts/Raleway-Regular.ttf";
+import comfortaa from 'fonts/Comfortaa-Regular.ttf';
+import lato from 'fonts/Lato-Regular.ttf';
+import raleway from 'fonts/Raleway-Regular.ttf';
 import { lightTheme, darkTheme } from './theme.js';
 
 const GlobalStyle = createGlobalStyle`
@@ -14,19 +14,22 @@ const GlobalStyle = createGlobalStyle`
 
 @font-face {
     font-family: 'Comfortaa';
-    font-weight: 400;
+    font-weight: normal;
+    font-style: normal;
     src: url('${comfortaa}') format('truetype');
 }
 
 @font-face {
     font-family: 'Lato';
-    font-weight: 400;
+    font-weight: normal;
+    font-style: normal;
     src: url('${lato}') format('truetype');
 }
 
 @font-face {
     font-family: 'Raleway';
-    font-weight: 400;
+    font-weight: normal;
+    font-style: normal;
     src: url('${raleway}') format('truetype');
 }
 
