@@ -1,0 +1,37 @@
+inputConfigArray = [
+    {
+        label: "Cash/COD",
+        additionalInfo: "",
+        direction: "row",
+        id: "option",
+        placeholder: "test placeholder",
+        icon: <CashIcon/>,
+        onchange: () => {},
+        value: "",
+        type: "text",
+        required: true,
+        disabled: false,
+        checked: false,
+        pattern: "",
+        rows: "",
+        cols: "",
+        editable: false,
+        editing: false,
+        editableData: {} //These are informations editable within radio input acting as selection
+    }
+]
+
+fieldsets = [
+	{
+        legend: "Test Inputs 1",
+        inputs: <inputConfigArray>.map((config, index) => ({
+                    ...config,
+                    id: `${config.id}-${index}`,
+                    dataAttributes: {
+                        "data-index": index
+                    }
+                })),
+        height: "35%",
+        expandable: false
+    }
+]
