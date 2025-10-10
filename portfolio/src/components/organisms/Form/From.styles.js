@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 import { v } from 'styles/variables.js';
-import Label from 'components/atoms/Label/Label.jsx';
-
-export const EditableInputButtonContainer = styled.div`
-    display: flex;
-    height: 50%;
-    width: 20%;
-`
-
-export const LabelAndInputContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    width: 100%;
-    margin-bottom: ${v.spacing.small};
-`;
 
 export const FormLegend = styled.legend`
     font-size: ${v.spacing.medium};

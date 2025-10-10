@@ -17,7 +17,19 @@ inputConfigArray = [
         cols: "",
         editable: false,
         editing: false,
-        editableData: {} //These are informations editable within radio input acting as selection
+        editableInformation: [ //These are informations editable within radio input acting as selection
+            {
+                name: 'School',
+                info: 'Pamantasan ng Lungsod ng Maynila',
+                type: 'text'
+            }
+        ],
+        onclickedit: () => {},
+        editicon: '',
+        onclickdelete: () => {},
+        deleteicon: '',
+        onclicksave: () => {},
+        onclickcancel: () => {}
     }
 ]
 

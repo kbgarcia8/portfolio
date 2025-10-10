@@ -16,7 +16,7 @@ export const WideComponentSpace = styled.div`
     display: flex;
     flex-direction: column;
     place-items: center;
-    height: 33.3vh;
+    height: 95vh;
     width: 97.5vw;
     border: ${v.borderThickness.medium} solid red;
 `;
@@ -35,7 +35,7 @@ export const SmallComponentSpace = styled.div`
     grid-template-columns: repeat(5, minmax(5vw,1fr));
     grid-template-rows: 20%;
     gap: 0.25rem;
-    height: 33.3vh;
+    height: 95vh;
     width: 97.5vw;
     border: ${v.borderThickness.medium} solid blue;
 `;
