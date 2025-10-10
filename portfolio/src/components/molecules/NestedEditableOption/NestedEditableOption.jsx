@@ -1,6 +1,7 @@
 import React from "react";
-import * as styled from './Labeled.styles.js';
+import * as styled from './NestedEditableOption.styles.js';
 import Input from "components/atoms/Input";
+import PropTypes from 'prop-types';
 
 const NestedEditableOption = ({
     legend,
@@ -38,6 +39,23 @@ const NestedEditableOption = ({
             </styled.ButtonContainer>
         </styled.FormFieldset>
     )
+}
+
+NestedEditableOption.propTypes = {
+    legend: PropTypes.string,
+    idx: PropTypes.number,
+    editableInformation: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            info: PropTypes.string,
+            type: PropTypes.string
+
+        })
+    ),
+    onchangeOfEditableOption: PropTypes.function,
+    onClickSaveEdit: PropTypes.function,
+    onClickCancelEdit: PropTypes.function,
+    onClickDeleteEntry: PropTypes.function
 }
 
 export default NestedEditableOption;

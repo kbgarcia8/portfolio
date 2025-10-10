@@ -1,10 +1,12 @@
 import React from "react";
-import * as styled from './Labeled.styles.js';
+import * as styled from './LabeledInput.styles.js';
 import Label from "components/atoms/Label";
 import Input from "components/atoms/Input";
+import PropTypes from 'prop-types';
 
 const LabeledInput = ({
     name,
+    type,
     checked,
     id,
     label,
@@ -18,7 +20,7 @@ const LabeledInput = ({
     required,
     dataAttributes,
     inputClass,
-    ref,
+    ref, 
     disabled,
     pattern,
     rows,
@@ -59,6 +61,39 @@ const LabeledInput = ({
             {children}
         </styled.LabelAndInputContainer>
     )
+}
+
+LabeledInput.propTypes = {
+    name: PropTypes.string,
+    type: PropTypes.string,
+    checked: PropTypes.bool,
+    id: PropTypes.string,
+    label: PropTypes.string,
+    additionalInfo: PropTypes.string,
+    direction: PropTypes.string,
+    icon: PropTypes.element,
+    labelClass: PropTypes.string,
+    placeholder: PropTypes.string,
+    onchange: PropTypes.function,
+    value: PropTypes.string,
+    required: PropTypes.bool,
+    dataAttributes: PropTypes.object,
+    inputClass: PropTypes.string,
+    ref: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.any })
+    ]),
+    disabled: PropTypes.bool,
+    pattern: PropTypes.string,
+    rows: PropTypes.number,
+    cols: PropTypes.number,
+    isEditable: PropTypes.bool,
+    editIcon: PropTypes.elemet,
+    onClickEdit: PropTypes.function,
+    deleteIcon: PropTypes.element,
+    onClickDelete: PropTypes.function,
+    idx: PropTypes.number,
+    children: PropTypes.node
 }
 
 export default LabeledInput;

@@ -37,7 +37,8 @@ html, body {
     margin: 0;
     padding: 0;
     display: flex;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     font-size: calc(0.075vmin + ${v.base.fontSize});
     max-width: 100vw;
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "src/components/atoms/Button";
-import Input from "src/components/atoms/Input"
-import Label from "src/components/atoms/Label"
+import Button from "components/atoms/Button";
+import Input from "components/atoms/Input"
+import Label from "components/atoms/Label"
 import LabeledInput from "components/molecules/LabeledInput";
 import NestedEditableOption from "components/molecules/NestedEditableOption";
 import FormActionButtons from "components/molecules/FormActionButtons";
-import * as styled from "./Form.styles.js";
+import * as styled from "./From.styles.js";
 
 const Form = ({
     fieldsets = null, // if a form has differrent fieldsets
@@ -42,11 +42,12 @@ const Form = ({
                     <styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} $fieldsetHeight={fieldset.height}>
                         <styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`}>
                             {fieldset.legend && <styled.FormLegend>{fieldset.legend}</styled.FormLegend>}
-                            {field['inputs'].length !== 0
-                            ? field['inputs'].map((input, inputIndex) => (
+                            {fieldset['inputs'].length !== 0
+                            ? fieldset['inputs'].map((input, inputIndex) => (
                                 <React.Fragment key={`form-${id}-${inputIndex}`}>
                                 <LabeledInput
                                     name={fieldset.legend}
+                                    type={input.type ?? 'text'}
                                     checked={!!input?.checked}
                                     id={input?.id ?? `${fieldset.legend}-input`}
                                     label={input.label}
@@ -102,6 +103,7 @@ const Form = ({
                             <React.Fragment key={`form-${id}-${inputIndex}`}>
                                 <LabeledInput
                                     name={legendText}
+                                    type={input.type ?? 'text'}
                                     checked={!!input?.checked}
                                     id={input?.id ?? `${legendText}-input`}
                                     label={input.label}
@@ -148,6 +150,7 @@ const Form = ({
                 </styled.FieldsetWrapper>
             }
             <FormActionButtons
+                id={id}
                 hasSubmit={hasSubmit}
                 submitText={submitText}
                 handleSubmit={handleSubmit}
@@ -174,28 +177,29 @@ const validateEditableData = (props, propName, componentName) => {
 
     for (const input of inputs) {
         if (input.editable) {
+            //check if there is an editing property in input object if it is editable
             if (
                 typeof input !== "object" ||
                 !input.hasOwnProperty("editing") ||
                 typeof input.editing !== "boolean"
             ) {
                 return new Error(
-                    `Invalid prop \`data\` in \`${componentName}\`. When \`editable\` is true, \`data\` must have an \`editing\` key with a boolean value.`
+                    `Invalid prop data in ${componentName}. When editable is true, data must have an editing key with a boolean value.`
                 );
             }
 
             // Ensure required editable-related props are present
-            const requiredProps = ["onClickEdit", "editIcon", "onClickDelete", "deleteIcon", "onClickSave", "onClickCancel"];
+            const requiredProps = ["onclickedit", "editicon", "onclickdelete", "deleteicon", "onclicksave", "onclickcancel"];
             for (const key of requiredProps) {
                 if (typeof input[key] === "undefined") {
                     return new Error(
-                        `Invalid prop \`${key}\` in \`${componentName}\`. This prop is required when \`editable\` is true.`
+                        `Invalid prop ${key} in ${componentName}. This prop is required when editable is true.`
                     );
                 }
             }
         }
 
-        // Validation for radio inputs
+        //If input type is a radio must have a checked porperty
         if (input.type === "radio") {
             if (
                 typeof input !== "object" ||
@@ -203,7 +207,7 @@ const validateEditableData = (props, propName, componentName) => {
                 typeof input.checked !== "boolean"
             ) {
                 return new Error(
-                    `Invalid prop \`data\` in \`${componentName}\`. When \`type\` is "radio", \`data\` must have a \`checked\` key with a boolean value.`
+                    `Invalid prop data in ${componentName}. When type is "radio", data must have a checked key with a boolean value.`
                 );
             }
         }
@@ -217,26 +221,33 @@ const inputShape = PropTypes.arrayOf(
     PropTypes.shape({
     labelText: PropTypes.string,
     additionalInfo: PropTypes.string,
-    labelDirection: PropTypes.string.isRequired,
+    direction: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    placeholderText: PropTypes.string,
+    placeholder: PropTypes.string,
     editable: PropTypes.bool, 
-    mainOnChange: PropTypes.func, //handles change of main inputs (non-editable)
-    //Make all props below required when input is editable
+    value: PropTypes.string,
+    type: PropTypes.string,
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    checked: PropTypes.bool,
+    pattern: PropTypes.string,
+    editableInformation: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string,
+            info: PropTypes.string,
+            type: PropTypes.string
+
+        })
+    ),
+    dataAttributes: PropTypes.object,
+    onchange: PropTypes.func,
+    /* Props below are required when input is editable */
     onClickEdit: PropTypes.func,
     editIcon: PropTypes.element,
     onClickDelete: PropTypes.func,
     deleteIcon: PropTypes.element,
     onClickSave: PropTypes.func,
-    onClickCancel: PropTypes.func,
-    //Make all props above required when input is editable
-    type: PropTypes.string,
-    isRequired: PropTypes.bool,
-    //disabled are up-ed here from data in inputShape of formInputs since it is applicable even if input is not radio which is usually the only type that requires a data attribute
-    disabled: PropTypes.bool,
-    pattern: PropTypes.string,
-    data: PropTypes.object, //when there is an object data that needs to be incorporated in the input when clicked. Usually needed for radio inputs
-    dataAttributes: PropTypes.object,
+    onClickCancel: PropTypes.func
     })
 )
 

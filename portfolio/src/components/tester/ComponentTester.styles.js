@@ -3,7 +3,7 @@ import { v } from 'styles/variables.js';
 
 export const TesterWrapper = styled.div`
     min-height: 100vh;
-    width: 100vw;
+    width: 97.5vw;
     padding: ${v.spacing.small};
     background-color: transparent;
     border: 5px solid black;
@@ -17,7 +17,7 @@ export const WideComponentSpace = styled.div`
     flex-direction: column;
     place-items: center;
     height: 95vh;
-    width: 97.5vw;
+    width: 95vw;
     border: ${v.borderThickness.medium} solid red;
 `;
 
@@ -36,7 +36,7 @@ export const SmallComponentSpace = styled.div`
     grid-template-rows: 20%;
     gap: 0.25rem;
     height: 95vh;
-    width: 97.5vw;
+    width: 95vw;
     border: ${v.borderThickness.medium} solid blue;
 `;
 

@@ -1,6 +1,6 @@
 inputConfigArray = [
     {
-        label: "Cash/COD",
+        label: "Test Label 1",
         additionalInfo: "",
         direction: "row",
         id: "option",
