@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 import { v } from 'styles/variables.js';
 
-export const MainLayoutWrapper = styled.div.attrs(props => ({
-    scrollbarWidth: props.scrollbarWidth
-}))`
+export const MainLayoutWrapper = styled.div`
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    width: ${(props) => `calc(100vw - ${props.scrollbarWidth}px)`};
+    width: ${(props) => `calc(100vw - ${props.$scrollbarWidth}px)`};
     gap: 0;
     background-color: ${({theme}) => theme.bg};
 `;
 
-export const MainLayoutHeader = styled.div`
-    max-width: 100%;
+export const MainLayoutHeader = styled.header`
+    width: 100%;
     height: 10vh;
     position: relative;
     top: 0;
@@ -21,13 +19,14 @@ export const MainLayoutHeader = styled.div`
 `;
 
 export const MainLayoutContent = styled.main`
-    max-width: 100%;
+    width: 100%;
     min-height: 100vh;
     overflow-y: auto;
     grid-row: 2/3;
 `;
 
-export const MainLayoutFooter = styled(MainLayoutHeader)`
+export const MainLayoutFooter = styled.footer`
+    width: 100%;
     height: 7.5vh;
     position: relative;
     bottom: 0;

@@ -3,6 +3,7 @@ import { v } from './variables.js';
 import comfortaa from 'fonts/Comfortaa-Regular.ttf';
 import lato from 'fonts/Lato-Regular.ttf';
 import raleway from 'fonts/Raleway-Regular.ttf';
+import proxima from 'fonts/Proximanova-Regular.ttf';
 import { lightTheme, darkTheme } from './theme.js';
 
 const GlobalStyle = createGlobalStyle`
@@ -31,6 +32,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
     src: url('${raleway}') format('truetype');
+}
+
+@font-face {
+    font-family: 'Proxima';
+    font-weight: normal;
+    font-style: normal;
+    src: url('${proxima}') format('truetype');
 }
 
 html, body {
@@ -116,7 +124,6 @@ u {
     display: flex;
     flex-direction: column;
     place-items: center;
-    place-content: center;
 }
 
 /* Style for toast-react */

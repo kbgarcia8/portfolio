@@ -8,6 +8,7 @@ export const v = {
         primary: 'Comfortaa',
         secondary: 'Raleway',
         tertiary: 'Lato',
+        additional: 'Proxima',
         fallback: 'system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif',
     },
     fontWeight : {

@@ -12,7 +12,6 @@ import Divider from "components/atoms/Divider";
 import Navbar from "components/molecules/Navbar";
 import Form from "components/organisms/Form";
 import StackCard from "components/molecules/StackCard";
-import Header from "components/organisms/Header";
 /* SVGs */
 import CashIcon from "components/svgs/CashIcon.jsx";
 import { FaReact } from "react-icons/fa";
@@ -149,10 +148,6 @@ const smallComponents = [
 const routes =[
     {
         path: "/",
-        element: <MainLayout header={<Header/>}/>
-    },
-    {
-        path: "/tester",
         element: <ComponentTester wideComponents={wideComponents} smallComponents={smallComponents}/>
     }
 ];
