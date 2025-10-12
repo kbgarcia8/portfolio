@@ -3,7 +3,7 @@ export const lightTheme = {
     text: '#333446',
     bg: '#EEEEEE',
     blue: '#7F8CAA',
-    teal: '#B8CFCE',
+    teal: '#5b8280ff',
     gray: '#AEAEAE',
     information: '#202234',
     success: '#123524',

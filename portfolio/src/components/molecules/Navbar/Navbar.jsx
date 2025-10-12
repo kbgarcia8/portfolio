@@ -3,12 +3,12 @@ import { useTheme } from 'context/ThemeContext.jsx';
 import * as styled from "./Navbar.styles.js";
 import PropTypes from "prop-types";
 
-const Navbar =({anchorTheme, links}) => {
+const Navbar =({className, anchorTheme, links}) => {
     const { theme } = useTheme();
 
     return(
         <>
-            <styled.DefaultNavbar>
+            <styled.DefaultNavbar className={className}>
                 <styled.NavbarLinks>
                     {links?.map((link,index) => 
                         <styled.NavbarLink key={`${link}-${index}`}>
@@ -22,6 +22,7 @@ const Navbar =({anchorTheme, links}) => {
 }
 
 Navbar.PropTypes = {
+    className: PropTypes.string.isRequired,
     anchorTheme: PropTypes.shape({
         color: PropTypes.string,
         hover: PropTypes.string,

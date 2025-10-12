@@ -5,8 +5,8 @@ import Navbar from "components/molecules/Navbar/Navbar.jsx";
 
 const links = [
     {name: "About", path:"/"},
-    {name: "Projects", path:"/testimonials"},
-    {name: "Contact", path:"/contact"},
+    {name: "Projects", path:"/projects"},
+    {name: "Contact", path:"/contacts"},
 ];
 
 const Header = ({
@@ -16,7 +16,7 @@ const Header = ({
             <styled.HeaderLogo>
                 <styled.HeaderTextLogo>{'kbg'}</styled.HeaderTextLogo>
             </styled.HeaderLogo>
-            <Navbar links={links}/>
+            <styled.HeaderNavbar className={'header-navbar'} links={links}/>
         </styled.HeaderWrapper>
     )
 }

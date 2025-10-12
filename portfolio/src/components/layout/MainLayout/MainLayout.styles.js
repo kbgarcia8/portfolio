@@ -20,7 +20,7 @@ export const MainLayoutHeader = styled.header`
 
 export const MainLayoutContent = styled.main`
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     overflow-y: auto;
     grid-row: 2/3;
 `;

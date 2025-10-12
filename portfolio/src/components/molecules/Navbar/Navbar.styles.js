@@ -32,6 +32,7 @@ export const NavbarLink = styled.li`
 export const StyledLink = styled(Link)`
     text-decoration: none;
     color: ${({theme, $anchorTheme}) => $anchorTheme?.color || theme.text};
+
     &:hover{
         color: ${({theme, $anchorTheme}) => $anchorTheme?.hover || theme.teal};
         text-decoration: underline;
