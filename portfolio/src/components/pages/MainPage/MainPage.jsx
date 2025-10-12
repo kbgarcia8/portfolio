@@ -5,7 +5,7 @@ import * as styled from './MainPage.styles.js';
 const MainPage = () => {
     return (
         <styled.MainPageWrapper>
-
+            
         </styled.MainPageWrapper>
     )
 }
