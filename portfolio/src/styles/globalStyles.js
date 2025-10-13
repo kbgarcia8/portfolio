@@ -52,13 +52,13 @@ html, body {
 }
 
 h1, h2, h3, h4, form, legend {
-    font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
+    font-family: ${v.fonts.primary}, ${v.fonts.fallback};
     line-height: ${v.base.lineHeight};
     color: ${({theme}) => theme.text};
 }
 
 p, label, input, button {
-    font-family: ${v.fonts.primary}, ${v.fonts.fallback};
+    font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
     line-height: ${v.base.lineHeight};
     color: ${({theme}) => theme.text};
 }

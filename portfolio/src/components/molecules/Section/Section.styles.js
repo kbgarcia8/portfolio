@@ -11,8 +11,10 @@ export const SectionWrapper = styled.section`
 
 export const SectionTitle = styled.h2`
     text-align: left;
+    font-weight: ${v.fontWeight.bolder};
 `;
 
-export const SectionDescription = styled.p`
+export const SectionDescription = styled.h4`
     text-align: left;
+    font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
 `;

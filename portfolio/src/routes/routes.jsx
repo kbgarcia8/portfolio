@@ -13,6 +13,7 @@ import Navbar from "components/molecules/Navbar";
 import Form from "components/organisms/Form";
 import StackCard from "components/molecules/StackCard";
 import Header from "components/organisms/Header";
+import MainPage from "components/pages/MainPage";
 /* SVGs */
 import CashIcon from "components/svgs/CashIcon.jsx";
 import { FaReact } from "react-icons/fa";
@@ -149,7 +150,10 @@ const smallComponents = [
 const routes =[
     {
         path: "/",
-        element: <MainLayout header={<Header/>}/>
+        element: <MainLayout header={<Header/>}/>,
+        children: [
+            {index: true, element: <MainPage/>}
+        ]
     },
     {
         path: "/tester",

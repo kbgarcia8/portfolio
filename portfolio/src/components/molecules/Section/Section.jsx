@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as styled from './Section.styles.js';
 
-const Section = ({className, title, description}) => {
+const Section = ({className, title, description, children}) => {
     return(
         <styled.SectionWrapper className={className}>
             {title && <styled.SectionTitle>{title}</styled.SectionTitle>}
