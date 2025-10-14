@@ -5,7 +5,8 @@ import Section from "components/molecules/Section";
 export const MainPageWrapper = styled.div`
     width: 100%;
     height: 100%;
-    padding: ${v.spacing.medium};
+    padding-block: ${v.spacing.medium};
+    padding-inline: ${v.spacing.xxxlarge};
 `;
 
 export const AboutSection = styled(Section)`
