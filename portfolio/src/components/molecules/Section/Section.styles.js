@@ -14,7 +14,7 @@ export const SectionTitle = styled.h2`
     font-weight: ${v.fontWeight.bolder};
 `;
 
-export const SectionDescription = styled.h4`
+export const SectionDescription = styled.h3`
     text-align: left;
     font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
 `;

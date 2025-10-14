@@ -25,11 +25,6 @@ const Button = ({
             id={id}
             type={buttonType}
             className={className}
-            $bgColor={bgColor}
-            $lineColor={lineColor}
-            $borderColor={borderColor}
-            $hoverColor={hoverColor}
-            $hoverBorderColor={hoverBorderColor}
             {...dataAttributes}
         >
             <styled.ButtonTextAndIconSpace className={"button-icon-text-space"}>

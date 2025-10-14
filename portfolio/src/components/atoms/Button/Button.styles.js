@@ -5,9 +5,9 @@ export const DefaultButton = styled.button`
     display: flex;
     align-items: center;
     justify-items: center;
-    background-color: ${props => props.$bgColor || 'blue'};
-    color: ${props => props.$lineColor || 'white'};
-    border: ${v.borderThickness.light} solid ${props => props.$borderColor || 'black'};
+    background-color: ${({theme}) => theme.blue || 'blue'};
+    color: ${({theme}) => theme.bg || 'white'};
+    border: ${v.borderThickness.light} solid ${({theme}) => theme.text || 'black'};
     border-radius: ${v.borderRadius.xlarge};
     padding: ${v.spacing.xxxsmall} ${v.spacing.small};
     margin: 0.125rem;
@@ -16,8 +16,8 @@ export const DefaultButton = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: ${props => props.$hoverColor || 'lightblue'};
-        border: ${v.borderThickness.light} solid ${props => props.$hoverBorderColor || 'gray'};
+        background-color: lightblue;
+        border: ${v.borderThickness.light} solid gray;
     }
 
     & .button-icon-text-space {

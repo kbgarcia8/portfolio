@@ -19,6 +19,8 @@ export const MainLayoutHeader = styled.header`
 `;
 
 export const MainLayoutContent = styled.main`
+    display: flex;
+    justify-content: center;
     width: 100%;
     min-height: 50vh;
     overflow-y: auto;
