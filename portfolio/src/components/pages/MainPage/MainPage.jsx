@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
 import * as styled from './MainPage.styles.js';
+import StackCard from "components/molecules/StackCard";
 
 const aboutSectionParagraph = `I'm currently working as a Design Engineer at Xinyx, a semiconductor company with the main task of 
 delivering simulation data of integrated circuits in files with thousands of lines of data. I was introduced to Bash, Perl and Python
@@ -23,6 +24,13 @@ const MainPage = () => {
                 </styled.ViewButtonContainer>
             </styled.AboutSection>
             <Divider/>
+            <styled.TechStackSection title={'Tech Stack'} description={'Colored boxes each stack indicates proficiency 1 being the lowest and 5 the highest'}>
+                <styled.StackContainer>
+                    <styled.StyledStackCard text={'Perl'} bgColor={'	#1981AA'}/>
+                    <styled.StyledStackCard text={'Bash'} bgColor={'gray'}/>
+                    <styled.StyledStackCard text={'Python'} bgColor={'yellow'}/>
+                </styled.StackContainer>
+            </styled.TechStackSection>
         </styled.MainPageWrapper>
     )
 }

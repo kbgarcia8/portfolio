@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { v } from "styles/variables.js";
 import Section from "components/molecules/Section";
 import Button from "components/atoms/Button";
+import StackCard from "components/molecules/StackCard";
 
 export const MainPageWrapper = styled.div`
     width: 70%;
@@ -37,4 +38,26 @@ export const ViewAbout = styled(Button)`
     & span {
         font-size: ${v.fontSize.small};
     }
+`;
+
+export const StyledStackCard = styled(StackCard)`
+
+`;
+
+export const TechStackSection = styled(Section)`
+    width: 100%;
+    height: 50vh;
+    border: 2px solid red;
+
+    & h3 {
+        font-size: ${v.fontSize.small};
+    }
+`;
+
+
+export const StackContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: 2px solid blue;
 `;
