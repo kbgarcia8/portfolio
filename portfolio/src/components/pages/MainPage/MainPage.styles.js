@@ -41,7 +41,13 @@ export const ViewAbout = styled(Button)`
 `;
 
 export const StyledStackCard = styled(StackCard)`
-
+    transition: transform 0.3s ease-in-out;
+    &>*{
+        cursor: pointer;
+    }
+    &:hover {
+        transform: translateY(-${v.spacing.small});
+    }
 `;
 
 export const TechStackSection = styled(Section)`
@@ -58,6 +64,8 @@ export const TechStackSection = styled(Section)`
 export const StackContainer = styled.div`
     width: 100%;
     height: 100%;
-    display: flex;
-    border: 2px solid blue;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: ${v.spacing.xxsmall};
 `;

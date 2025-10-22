@@ -30,6 +30,7 @@ export const TextContainer = styled.span`
     width: 75%;
     height: 100%;
     font-size: ${v.fontSize.small};
+    font-weight: ${v.fontWeight.bolder};
     font-family: ${v.fonts.primary}, ${v.fonts.fallback};
     color: ${(props) => props.$textColor};
 `;

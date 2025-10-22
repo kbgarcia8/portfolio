@@ -8,13 +8,14 @@ const StackCard = ({
     bgColor,
     icon,
     textColor,
-    text
+    text,
+    className
 }) => {
 
     const { currentTheme } = useTheme();
 
     return(
-        <styled.StackCardContainer $borderColor={borderColor ?? currentTheme.text} $bgColor={bgColor}>
+        <styled.StackCardContainer className={className} $borderColor={borderColor ?? currentTheme.text} $bgColor={bgColor}>
             <styled.IconContainer>
                 {icon}
             </styled.IconContainer>
