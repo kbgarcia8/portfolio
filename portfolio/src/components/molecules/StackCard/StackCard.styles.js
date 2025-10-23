@@ -3,7 +3,7 @@ import { v } from "styles/variables.js";
 
 export const StackCardContainer = styled.div`
     width: 100%;
-    height: 50%;
+    height: 75%;
     border ${v.borderThickness.medium} solid ${(props) => props.$borderColor};
     background-color: ${(props) => props.$bgColor};
     display: flex;
@@ -11,11 +11,39 @@ export const StackCardContainer = styled.div`
     justify-content: center;
     padding: ${v.spacing.xsmall};
     border-radius: ${v.borderRadius.small};
+    position: relative;
+`;
+
+export const RatingBoxContainer = styled.div`
+    position: absolute;
+    width: 95%;
+    height: 85%;
+    border: 2px solid red;
+    z-index: 1;
+`;
+
+export const RatingBox = styled.div`
+    width: 25%;
+    height: 100%;
+    border: 2px solid blue;
+    z-index: 2;
+    background-color: ${(props) => props.$bgColor};
+`;
+
+export const IconAndTextContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
 `;
 
 export const IconContainer = styled.div`
     width: 25%;
-    height: 100%;
+    height: 80%;
 
     & svg {
         width: 100%;

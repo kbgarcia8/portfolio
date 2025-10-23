@@ -42,6 +42,7 @@ export const ViewAbout = styled(Button)`
 
 export const StyledStackCard = styled(StackCard)`
     transition: transform 0.3s ease-in-out;
+
     &>*{
         cursor: pointer;
     }
@@ -66,6 +67,6 @@ export const StackContainer = styled.div`
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: ${v.spacing.xxsmall};
 `;
