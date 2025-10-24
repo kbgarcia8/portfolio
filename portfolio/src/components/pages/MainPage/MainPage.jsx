@@ -55,7 +55,9 @@ const MainPage = () => {
                 </styled.StackContainer>
             </styled.TechStackSection>
             <Divider/>
-            <styled.ProjectSection title={'Personal Projects'}></styled.ProjectSection>
+            <styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
+                
+            </styled.ProjectSection>
         </styled.MainPageWrapper>
     )
 }
