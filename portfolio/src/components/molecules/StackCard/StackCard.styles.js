@@ -4,7 +4,7 @@ import { v } from "styles/variables.js";
 export const StackCardContainer = styled.div`
     width: 100%;
     height: 75%;
-    border ${v.borderThickness.medium} solid ${(props) => props.$borderColor};
+    border: ${v.borderThickness.small} solid ${(props) => props.$borderColor};
     background-color: ${(props) => props.$bgColor};
     display: flex;
     align-items: center;
@@ -15,17 +15,17 @@ export const StackCardContainer = styled.div`
 `;
 
 export const RatingBoxContainer = styled.div`
+    display: flex;
     position: absolute;
     width: 95%;
     height: 85%;
-    border: 2px solid red;
     z-index: 1;
 `;
 
 export const RatingBox = styled.div`
     width: 25%;
     height: 100%;
-    border: 2px solid blue;
+    border: ${v.borderThickness.xsmall} solid ${(props) => props.$borderColor};
     z-index: 2;
     background-color: ${(props) => props.$bgColor};
 `;
@@ -38,7 +38,6 @@ export const IconAndTextContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid green;
 `;
 
 export const IconContainer = styled.div`
@@ -46,6 +45,7 @@ export const IconContainer = styled.div`
     height: 80%;
 
     & svg {
+        color: ${(props) => props.$textColor};
         width: 100%;
         height: 100%;
     }

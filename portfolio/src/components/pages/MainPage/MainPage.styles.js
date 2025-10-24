@@ -47,14 +47,13 @@ export const StyledStackCard = styled(StackCard)`
         cursor: pointer;
     }
     &:hover {
-        transform: translateY(-${v.spacing.small});
+        transform: translateY(-${v.spacing.xsmall});
     }
 `;
 
 export const TechStackSection = styled(Section)`
     width: 100%;
     height: 50vh;
-    border: 2px solid red;
 
     & h3 {
         font-size: ${v.fontSize.small};
@@ -69,4 +68,9 @@ export const StackContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: ${v.spacing.xxsmall};
+`;
+
+export const ProjectSection = styled(Section)`
+    width: 100%;
+    height: 50vh;
 `;

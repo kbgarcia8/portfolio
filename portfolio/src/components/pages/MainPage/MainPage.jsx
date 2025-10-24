@@ -34,26 +34,28 @@ const MainPage = () => {
                 </styled.ViewButtonContainer>
             </styled.AboutSection>
             <Divider/>
-            <styled.TechStackSection title={'Tech Stack'} description={'Colored boxes in each stack indicates proficiency 1 being the lowest and 5 the highest'}>
+            <styled.TechStackSection title={'Tech Stack'} description={'Colored boxes in each stack indicates proficiency: 1 - Basic Knowledge 2 - Minimal experience and limited Proficiency 3 - Intermediate Proficiency 4 - High Proficiency 5 - Expert Proficiency'}>
                 <styled.StackContainer>
-                    <styled.StyledStackCard text={'Perl'} icon={<SiPerl color="#FFFFFF"/>} bgColor={'#1981AA'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Bash/Unix'} icon={<SiGnubash color="#FFFFFF"/>} bgColor={'gray'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Python'} icon={<FaPython/>} bgColor={'#FFE873'}/>
-                    <styled.StyledStackCard text={'Tcl'} icon={<FaFeatherAlt/>} bgColor={'#BADA55'}/>
-                    <styled.StyledStackCard text={'JavaScript'} icon={<IoLogoJavascript/>} bgColor={'#F0DB4F'}/>
-                    <styled.StyledStackCard text={'Google Apps Script'} icon={<SiGoogleappsscript color="#FFFFFF"/>} bgColor={'#EA4335'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'HTML5'} icon={<FaHtml5 color="#FFFFFF"/>} bgColor={'#F06529'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'CSS'} icon={<FaCss3 color="#FFFFFF"/>} bgColor={'#663399'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'ReactJS'} icon={<FaReact/>} bgColor={'#61DBFB'}/>
-                    <styled.StyledStackCard text={'NodeJS'} icon={<FaNodeJs color="#FFFFFF"/>} bgColor={'#68A063'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Git'} icon={<FaGitAlt color="#FFFFFF"/>} bgColor={'	#3E2C00'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Vercel'} icon={<SiVercel color={`${currentTheme.bg}`}/>} bgColor={`${currentTheme.text}`} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard text={'VSCode'} icon={<VscVscode color="#FFFFFF"/>} bgColor={'#007ACC'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Firebase'} icon={<IoLogoFirebase color="#FFFFFF"/>} bgColor={'#FF9100'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'PostgreSQL'} icon={<BiLogoPostgresql color="#FFFFFF"/>} bgColor={'#336791'} textColor={'#FFFFFF'}/>
-                    <styled.StyledStackCard text={'Prisma ORM'}icon={<SiPrisma color="#FFFFFF"/>} bgColor={'#EA3E3C'} textColor={'#FFFFFF'}/>
+                    <styled.StyledStackCard rating={3} text={'Perl'} icon={<SiPerl/>} bgColor={'#1981AA'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={4} text={'Bash/Unix'} icon={<SiGnubash/>} bgColor={'gray'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={3} text={'Python'} icon={<FaPython/>} bgColor={'#FFE873'}/>
+                    <styled.StyledStackCard rating={2} text={'Tcl'} icon={<FaFeatherAlt/>} bgColor={'#BADA55'}/>
+                    <styled.StyledStackCard rating={3} text={'JavaScript'} icon={<IoLogoJavascript/>} bgColor={'#F0DB4F'}/>
+                    <styled.StyledStackCard rating={2} text={'Google Apps Script'} icon={<SiGoogleappsscript/>} bgColor={'#EA4335'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={3} text={'HTML5'} icon={<FaHtml5/>} bgColor={'#F06529'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={3} text={'CSS'} icon={<FaCss3/>} bgColor={'#663399'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={2} text={'ReactJS'} icon={<FaReact/>} bgColor={'#61DBFB'}/>
+                    <styled.StyledStackCard rating={2} text={'NodeJS'} icon={<FaNodeJs/>} bgColor={'#68A063'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={1} text={'Git'} icon={<FaGitAlt/>} bgColor={'	#3E2C00'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={1} text={'Vercel'} icon={<SiVercel color={`${currentTheme.bg}`}/>} bgColor={`${currentTheme.text}`} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={2} text={'VSCode'} icon={<VscVscode/>} bgColor={'#007ACC'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={1} text={'Firebase'} icon={<IoLogoFirebase/>} bgColor={'#FF9100'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={2} text={'PostgreSQL'} icon={<BiLogoPostgresql/>} bgColor={'#336791'} textColor={`${currentTheme.bg}`}/>
+                    <styled.StyledStackCard rating={2} text={'Prisma ORM'}icon={<SiPrisma/>} bgColor={'#EA3E3C'} textColor={`${currentTheme.bg}`}/>
                 </styled.StackContainer>
             </styled.TechStackSection>
+            <Divider/>
+            <styled.ProjectSection title={'Personal Projects'}></styled.ProjectSection>
         </styled.MainPageWrapper>
     )
 }
