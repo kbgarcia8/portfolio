@@ -3,6 +3,7 @@ import { v } from "styles/variables.js";
 import Section from "components/molecules/Section";
 import Button from "components/atoms/Button";
 import StackCard from "components/molecules/StackCard";
+import ProjectCard from "components/molecules/ProjectCard";
 
 export const MainPageWrapper = styled.div`
     width: 70%;
@@ -60,7 +61,6 @@ export const TechStackSection = styled(Section)`
     }
 `;
 
-
 export const StackContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -72,5 +72,27 @@ export const StackContainer = styled.div`
 
 export const ProjectSection = styled(Section)`
     width: 100%;
-    height: 50vh;
+    height: 100vh;
+    border: 2px solid red;
+`;
+
+export const ProjectCardContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50%);
+    gap: ${v.spacing.xxsmall};
+`;
+
+export const StyledProjectCard = styled(ProjectCard)`
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+
+    &>*{
+        cursor: pointer;
+    }
+    &:hover {
+        transform: scale(1.125);
+    }
 `;

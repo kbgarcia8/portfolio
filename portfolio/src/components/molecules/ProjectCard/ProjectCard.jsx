@@ -5,21 +5,26 @@ import { FaSquareGithub } from "react-icons/fa6";
 
 const ProjectCard = ({
     thumbnail,
-    title
+    title,
+    description,
+    className
 }) => {
     return(
-        <styled.ProjectCardContainer>
+        <styled.ProjectCardContainer className={className}>
             <styled.ProjectThumbnailContainer>
                 {thumbnail ? <styled.ProjectThumbnail src={thumbnail}/> : <FaSquareGithub/>}
             </styled.ProjectThumbnailContainer>
             <styled.ProjectTitle>{title}</styled.ProjectTitle>
+            <styled.ProjectDescription>{description}</styled.ProjectDescription>
         </styled.ProjectCardContainer>
     )
 }
 
 ProjectCard.propTypes = {
-    thumbnail: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string,
     title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    className: PropTypes.string
 }
 
 export default ProjectCard;

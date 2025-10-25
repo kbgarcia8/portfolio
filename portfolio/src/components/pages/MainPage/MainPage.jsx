@@ -56,7 +56,12 @@ const MainPage = () => {
             </styled.TechStackSection>
             <Divider/>
             <styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
-                
+                <styled.ProjectCardContainer>
+                    <styled.StyledProjectCard title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                </styled.ProjectCardContainer>
             </styled.ProjectSection>
         </styled.MainPageWrapper>
     )

@@ -3,7 +3,11 @@ import { v } from "styles/variables.js";
 
 export const ProjectCardContainer = styled.div`
     width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    border: ${v.borderThickness.light} solid ${({theme}) => theme.text};
+    border-radius: ${v.borderRadius.small};
 `;
 
 export const ProjectThumbnailContainer = styled.a`
@@ -12,6 +16,7 @@ export const ProjectThumbnailContainer = styled.a`
 
     & svg {
         width: 100%;
+        height: 100%;
     }
 `;
 
@@ -23,4 +28,10 @@ export const ProjectTitle = styled.h4`
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 10%;
+`;
+
+export const ProjectDescription = styled.p`
+    width: 100%;
+    height: 40%;
 `;

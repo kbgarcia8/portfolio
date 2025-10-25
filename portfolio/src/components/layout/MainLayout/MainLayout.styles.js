@@ -5,6 +5,7 @@ export const MainLayoutWrapper = styled.div`
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+    height: auto;
     width: ${(props) => `calc(100vw - ${props.$scrollbarWidth}px)`};
     gap: 0;
     background-color: ${({theme}) => theme.bg};
@@ -23,7 +24,6 @@ export const MainLayoutContent = styled.main`
     justify-content: center;
     width: 100%;
     min-height: 50vh;
-    overflow-y: auto;
     grid-row: 2/3;
 `;
 
