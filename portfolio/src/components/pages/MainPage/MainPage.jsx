@@ -19,6 +19,77 @@ Eventually this 'automation' led to developing Python-based CLI tools which piqu
 Development using The Odin Project as a guide since I am curious on how things work programmatically. Now I'm starting to build mini projects
 with the goal of shifting into the tech industry as a Full Stack or Software Developer.`;
 
+const inputs = [
+    { 
+        label: "Name",
+        additionalInfo: "",
+        direction: "row",
+        id: "name",
+        placeholder: "Name of Sender",
+        icon: '',
+        onchange: (e) => {console.log(e.currentTarget.value)},
+        value: "",
+        type: "text",
+        required: true,
+        disabled: false,
+        checked: false,
+        pattern: "",
+        rows: "",
+        cols: ""
+    },
+    { 
+        label: "Email",
+        additionalInfo: "",
+        direction: "row",
+        id: "email",
+        placeholder: "Email of Sender",
+        icon: '',
+        onchange: (e) => {console.log(e.currentTarget.value)},
+        value: "",
+        type: "email",
+        required: true,
+        disabled: false,
+        checked: false,
+        pattern: "",
+        rows: "",
+        cols: ""
+    },
+    { 
+        label: "Project Title or Subject",
+        additionalInfo: "",
+        direction: "row",
+        id: "title",
+        placeholder: "Project Title or Subject",
+        icon: '',
+        onchange: (e) => {console.log(e.currentTarget.value)},
+        value: "",
+        type: "text",
+        required: true,
+        disabled: false,
+        checked: false,
+        pattern: "",
+        rows: "",
+        cols: ""
+    },
+    { 
+        label: "Project Description or Message",
+        additionalInfo: "",
+        direction: "row",
+        id: "description",
+        placeholder: "Description or message",
+        icon: '',
+        onchange: (e) => {console.log(e.currentTarget.value)},
+        value: "",
+        type: "textarea",
+        required: true,
+        disabled: false,
+        checked: false,
+        pattern: "",
+        rows: "",
+        cols: ""
+    }
+]
+
 const MainPage = () => {
 
     const {currentTheme} = useTheme();
@@ -57,12 +128,16 @@ const MainPage = () => {
             <Divider/>
             <styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
                 <styled.ProjectCardContainer>
-                    <styled.StyledProjectCard title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
                 </styled.ProjectCardContainer>
             </styled.ProjectSection>
+            <Divider/>
+            <styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
+                <styled.QuickContactForm fieldsetHeight={'50vh'} id={'contact-me'} formInputs={inputs} hasSubmit/>
+            </styled.QuickContactSection>
         </styled.MainPageWrapper>
     )
 }

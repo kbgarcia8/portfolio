@@ -4,6 +4,7 @@ import Section from "components/molecules/Section";
 import Button from "components/atoms/Button";
 import StackCard from "components/molecules/StackCard";
 import ProjectCard from "components/molecules/ProjectCard";
+import Form from "components/organisms/Form";
 
 export const MainPageWrapper = styled.div`
     width: 70%;
@@ -73,21 +74,22 @@ export const StackContainer = styled.div`
 export const ProjectSection = styled(Section)`
     width: 100%;
     height: 100vh;
-    border: 2px solid red;
 `;
 
 export const ProjectCardContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 95%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 50%);
-    gap: ${v.spacing.xxsmall};
+    gap: ${v.spacing.xsmall};
+    place-items: center;
 `;
 
 export const StyledProjectCard = styled(ProjectCard)`
     transition: transform 0.3s ease-in-out;
-    height: 100%;
+    width: 85%;
+    height: 90%;
 
     &>*{
         cursor: pointer;
@@ -95,4 +97,13 @@ export const StyledProjectCard = styled(ProjectCard)`
     &:hover {
         transform: scale(1.125);
     }
+`;
+
+export const QuickContactSection = styled(Section)`
+    width: 100%;
+    height: 50vh;
+`;
+
+export const QuickContactForm = styled(Form)`
+    width: 75%;
 `;
