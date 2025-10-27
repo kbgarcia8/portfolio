@@ -99,11 +99,13 @@ const MainPage = () => {
     const [contactFormValues,setContactFormValues] = useState(initialContactFormValues);
 
     const handleContactFormChange = (e) => {
-        const { index, keyName } = e.currentTarget.dataset;
-        /*setContactFormValues(prevData => ({
+        const { index, keyname } = e.currentTarget.dataset;
+        const currentValue = e.currentTarget.value;
+
+        setContactFormValues(prevData => ({
             ...prevData,
-            [keyName]: e.currentTarget.value
-        }));*/
+            [keyname]: currentValue
+        }));
     };
 
     const contactFormInputs = inputs.map((input, index) => ({
@@ -112,7 +114,7 @@ const MainPage = () => {
         value: contactFormValues[input.id],
         dataAttributes: {
             "data-index": index,
-            "data-keyName": input.id,
+            "data-keyname": input.id,
         }
     }));
 
