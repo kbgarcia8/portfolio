@@ -5,6 +5,7 @@ import Input from "components/atoms/Input";
 import PropTypes from 'prop-types';
 
 const LabeledInput = ({
+    className,
     name,
     type,
     checked,
@@ -34,7 +35,7 @@ const LabeledInput = ({
     children
 }) => {
     return(
-        <styled.LabelAndInputContainer className={`${name}-label-input-container ${!!checked ? "selected" : ""}`}>
+        <styled.LabelAndInputContainer className={`${className} ${name}-label-input-container ${!!checked ? "selected" : ""}`}>
             {type !== 'radio' && <Label htmlFor={id} textLabel={label} additionalInfo={additionalInfo} $labelDirection={direction} svg={icon} className={labelClass} />}
             <Input
                 id={id}
@@ -64,6 +65,7 @@ const LabeledInput = ({
 }
 
 LabeledInput.propTypes = {
+    className: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
     checked: PropTypes.bool,

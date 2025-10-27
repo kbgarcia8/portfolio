@@ -105,5 +105,13 @@ export const QuickContactSection = styled(Section)`
 `;
 
 export const QuickContactForm = styled(Form)`
-    width: 75%;
+    width: 100%;
+
+    &.contact-label-input-container{
+        border: 2px solid red;
+    }
+
+    & label {
+        align-items: flex-start;
+    }
 `;

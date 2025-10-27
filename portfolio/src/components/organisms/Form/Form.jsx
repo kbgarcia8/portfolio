@@ -15,6 +15,7 @@ const Form = ({
     isExpandable = false, // if form has no fieldsets this is default to false - to add inputs
     id,
     formInputs, //object that contains the input fields information to make it reusable
+    labelAndInputContainerClass,
     labelClassName,
     inputClassName,
     handleEditableInputEntryChange, //handles change on editable inputs
@@ -102,6 +103,7 @@ const Form = ({
                         ? formInputs.map((input, inputIndex) => (
                             <React.Fragment key={`form-${id}-${inputIndex}`}>
                                 <LabeledInput
+                                    className={labelAndInputContainerClass}
                                     name={legendText}
                                     type={input.type ?? 'text'}
                                     checked={!!input?.checked}
@@ -282,7 +284,8 @@ Form.propTypes = {
     fieldsetHeight: PropTypes.string, 
     isExpandable: PropTypes.bool,
     id: PropTypes.string,
-    formInputs: inputShape,    
+    formInputs: inputShape,
+    labelAndInputContainerClass: PropTypes.string,
     labelClassName: PropTypes.string,
     inputClassName: PropTypes.string,
     handleEditableInputEntryChange: PropTypes.func,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
 import * as styled from './MainPage.styles.js';
@@ -27,7 +27,6 @@ const inputs = [
         id: "name",
         placeholder: "Name of Sender",
         icon: '',
-        onchange: (e) => {console.log(e.currentTarget.value)},
         value: "",
         type: "text",
         required: true,
@@ -44,7 +43,6 @@ const inputs = [
         id: "email",
         placeholder: "Email of Sender",
         icon: '',
-        onchange: (e) => {console.log(e.currentTarget.value)},
         value: "",
         type: "email",
         required: true,
@@ -61,7 +59,6 @@ const inputs = [
         id: "title",
         placeholder: "Project Title or Subject",
         icon: '',
-        onchange: (e) => {console.log(e.currentTarget.value)},
         value: "",
         type: "text",
         required: true,
@@ -78,8 +75,6 @@ const inputs = [
         id: "description",
         placeholder: "Description or message",
         icon: '',
-        onchange: (e) => {console.log(e.currentTarget.value)},
-        value: "",
         type: "textarea",
         required: true,
         disabled: false,
@@ -88,11 +83,38 @@ const inputs = [
         rows: "",
         cols: ""
     }
-]
+];
+
+const initialContactFormValues = {
+    'name': '',
+    'email': '',
+    'title': '',
+    'description': ''
+}
 
 const MainPage = () => {
 
     const {currentTheme} = useTheme();
+
+    const [contactFormValues,setContactFormValues] = useState(initialContactFormValues);
+
+    const handleContactFormChange = (e) => {
+        const { index, keyName } = e.currentTarget.dataset;
+        /*setContactFormValues(prevData => ({
+            ...prevData,
+            [keyName]: e.currentTarget.value
+        }));*/
+    };
+
+    const contactFormInputs = inputs.map((input, index) => ({
+        ...input,
+        onchange: handleContactFormChange,
+        value: contactFormValues[input.id],
+        dataAttributes: {
+            "data-index": index,
+            "data-keyName": input.id,
+        }
+    }));
 
     return (
         <styled.MainPageWrapper>
@@ -136,7 +158,7 @@ const MainPage = () => {
             </styled.ProjectSection>
             <Divider/>
             <styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
-                <styled.QuickContactForm fieldsetHeight={'50vh'} id={'contact-me'} formInputs={inputs} hasSubmit/>
+                <styled.QuickContactForm fieldsetHeight={'50vh'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit/>
             </styled.QuickContactSection>
         </styled.MainPageWrapper>
     )
