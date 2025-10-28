@@ -101,17 +101,65 @@ export const StyledProjectCard = styled(ProjectCard)`
 
 export const QuickContactSection = styled(Section)`
     width: 100%;
-    height: 50vh;
+    height: 75vh;
 `;
 
 export const QuickContactForm = styled(Form)`
     width: 100%;
 
-    &.contact-label-input-container{
-        border: 2px solid red;
+    .contact-label-input-container{
+        width: 85%;
+        height: 15%;
+        padding-left: ${v.spacing.medium};
     }
 
     & label {
         align-items: flex-start;
+    }
+    
+    .contact-me-form-inputs {
+        width: 85%;
+        height: 100%;
+        font-size: ${v.fontSize.small};
+        border: none;
+        outline: none;
+        background-color: ${({theme}) => theme.bg};
+        border-bottom: ${v.borderThickness.medium} solid ${({theme}) => theme.text};
+    }
+
+    .contact-me-form-inputs:hover{
+        border-bottom: ${v.borderThickness.medium} solid ${({theme}) => theme.blue2};
+    }
+
+    .form-fieldset{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: ${v.borderRadius.small};
+        border: ${v.borderThickness.light} solid ${({theme})=>theme.text};
+    }
+    .form-fieldset:hover{
+        border-color: ${({theme}) => theme.blue};
+    }
+
+    .description-textarea{
+        height: 25%;
+    }
+    
+    .form-main-button-container{
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+
+        & button {
+            height: 100%;
+            width: 35%;
+            border-radius: ${v.borderRadius.small};
+
+            & span {
+                font-size: ${v.fontSize.small};
+            }
+        }
     }
 `;

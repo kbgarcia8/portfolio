@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
 import * as styled from './MainPage.styles.js';
@@ -69,6 +69,7 @@ const inputs = [
         cols: ""
     },
     { 
+        uniqueClass: "description-textarea",
         label: "Project Description or Message",
         additionalInfo: "",
         direction: "row",
@@ -80,7 +81,7 @@ const inputs = [
         disabled: false,
         checked: false,
         pattern: "",
-        rows: "",
+        rows: "20",
         cols: ""
     }
 ];
@@ -96,17 +97,25 @@ const MainPage = () => {
 
     const {currentTheme} = useTheme();
 
-    const [contactFormValues,setContactFormValues] = useState(initialContactFormValues);
+    const [contactFormValues,setContactFormValues] = React.useState(initialContactFormValues);
+    const [debouncedContactFormValues, setDebouncedContactFormValues] = React.useState(initialContactFormValues);
 
-    const handleContactFormChange = (e) => {
-        const { index, keyname } = e.currentTarget.dataset;
+    const handleContactFormChange = React.useCallback((e) => {
+        const { keyname } = e.currentTarget.dataset;
         const currentValue = e.currentTarget.value;
 
         setContactFormValues(prevData => ({
             ...prevData,
             [keyname]: currentValue
         }));
-    };
+    }, []);
+
+    React.useEffect(()=> {
+        const debounceInputTimeout = setTimeout(() => {
+            setDebouncedContactFormValues(contactFormValues);
+        }, 500);
+        return () => clearTimeout(debounceInputTimeout);
+    }, [contactFormValues]);
 
     const contactFormInputs = inputs.map((input, index) => ({
         ...input,
@@ -160,7 +169,7 @@ const MainPage = () => {
             </styled.ProjectSection>
             <Divider/>
             <styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
-                <styled.QuickContactForm fieldsetHeight={'50vh'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit/>
+                <styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit/>
             </styled.QuickContactSection>
         </styled.MainPageWrapper>
     )

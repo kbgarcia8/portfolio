@@ -41,12 +41,13 @@ const Form = ({
             {fieldsets !== null
                 ? fieldsets.map((fieldset, fieldsetIdx) => (
                     <styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} $fieldsetHeight={fieldset.height}>
-                        <styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`}>
+                        <styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`} className="form-fieldset">
                             {fieldset.legend && <styled.FormLegend>{fieldset.legend}</styled.FormLegend>}
                             {fieldset['inputs'].length !== 0
                             ? fieldset['inputs'].map((input, inputIndex) => (
                                 <React.Fragment key={`form-${id}-${inputIndex}`}>
                                 <LabeledInput
+                                    className={`${labelAndInputContainerClass} ${input?.uniqueClass}`}
                                     name={fieldset.legend}
                                     type={input.type ?? 'text'}
                                     checked={!!input?.checked}
@@ -97,13 +98,13 @@ const Form = ({
                     </styled.FieldsetWrapper>
                 ))
                 : <styled.FieldsetWrapper $fieldsetHeight={fieldsetHeight}>
-                    <styled.FormFieldset id={`${id}-form-fieldset`}>
+                    <styled.FormFieldset id={`${id}-form-fieldset`} className="form-fieldset">
                         {legendText && <styled.FormLegend>{legendText}</styled.FormLegend>}
                         {formInputs.length !== 0
                         ? formInputs.map((input, inputIndex) => (
                             <React.Fragment key={`form-${id}-${inputIndex}`}>
                                 <LabeledInput
-                                    className={labelAndInputContainerClass}
+                                    className={`${labelAndInputContainerClass} ${input?.uniqueClass}`}
                                     name={legendText}
                                     type={input.type ?? 'text'}
                                     checked={!!input?.checked}
@@ -221,6 +222,7 @@ const validateEditableData = (props, propName, componentName) => {
 */
 const inputShape = PropTypes.arrayOf(
     PropTypes.shape({
+    uniqueClass: PropTypes.string,
     labelText: PropTypes.string,
     additionalInfo: PropTypes.string,
     direction: PropTypes.string.isRequired,
