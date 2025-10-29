@@ -1,4 +1,5 @@
 import React from "react";
+import emailjs from 'emailjs-com';
 import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
 import * as styled from './MainPage.styles.js';
@@ -93,6 +94,13 @@ const initialContactFormValues = {
     'description': ''
 }
 
+/* Email JS variables */
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const autoReplyTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTO_REPLY;
+const notifyMeTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OWNER_NOTIFICATION;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+
 const MainPage = () => {
 
     const {currentTheme} = useTheme();
@@ -126,6 +134,29 @@ const MainPage = () => {
             "data-keyname": input.id,
         }
     }));
+
+    const handleFormSubmit = React.useCallback((e) => {
+        e.preventDefault();
+        //Send notification to own email
+        emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
+        .then((result) => {
+            console.log(result.text);
+            alert('Email sent to kbg successfully')
+        }, (error) => {
+            alert(`Notification to kbg error: ${error.text}`)
+        });
+
+        //Send auto-reply to sender of contact/query
+        emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
+        .then((result) => {
+            console.log(result.text);
+            alert('Email sent to kbg successfully')
+        }, (error) => {
+            alert(`Notification to kbg error: ${error.text}`)
+        });
+
+        setContactFormValues(initialContactFormValues);
+    },[]);
 
     return (
         <styled.MainPageWrapper>
@@ -169,7 +200,7 @@ const MainPage = () => {
             </styled.ProjectSection>
             <Divider/>
             <styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
-                <styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit/>
+                <styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit handleSubmit={handleFormSubmit}/>
             </styled.QuickContactSection>
         </styled.MainPageWrapper>
     )
