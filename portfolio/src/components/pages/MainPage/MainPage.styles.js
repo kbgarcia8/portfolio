@@ -10,7 +10,7 @@ export const MainPageWrapper = styled.div`
     width: 70%;
     height: 100%;
     padding-block: ${v.spacing.medium};
-    padding-inline: ${v.spacing.xxxlarge};
+    padding-inline: ${v.spacing.xlarge};
 `;
 
 export const AboutSection = styled(Section)`
@@ -21,6 +21,7 @@ export const AboutSection = styled(Section)`
 export const AboutSectionParagraph = styled.p`
     height: 70%;
     line-height: 1.75rem;
+    padding-top: ${v.spacing.small};
 `;
 
 export const ViewButtonContainer = styled.div`

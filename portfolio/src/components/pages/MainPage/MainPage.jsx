@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
 import * as styled from './MainPage.styles.js';
 import { useTheme } from "context/ThemeContext.jsx";
+import { useNavigate } from "react-router-dom";
 /* Icons */
 import { FaPython } from "react-icons/fa6";
 import { SiGnubash, SiPerl, SiGoogleappsscript, SiVercel, SiPrisma } from "react-icons/si";
@@ -104,6 +105,7 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const MainPage = () => {
 
     const {currentTheme} = useTheme();
+    const navigate = useNavigate();
 
     const [contactFormValues,setContactFormValues] = React.useState(initialContactFormValues);
     const [debouncedContactFormValues, setDebouncedContactFormValues] = React.useState(initialContactFormValues);
@@ -125,15 +127,17 @@ const MainPage = () => {
         return () => clearTimeout(debounceInputTimeout);
     }, [contactFormValues]);
 
-    const contactFormInputs = inputs.map((input, index) => ({
-        ...input,
-        onchange: handleContactFormChange,
-        value: contactFormValues[input.id],
-        dataAttributes: {
-            "data-index": index,
-            "data-keyname": input.id,
-        }
-    }));
+    const contactFormInputs = React.useMemo(() => {
+        return inputs.map((input, index) => ({
+            ...input,
+            onchange: handleContactFormChange,
+            value: contactFormValues[input.id],
+            dataAttributes: {
+                "data-index": index,
+                "data-keyname": input.id,
+            }
+        }));
+    },[contactFormValues]);
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
