@@ -8,7 +8,7 @@ import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
 const ContactPage = () => {
 
     const contacts = [
-        {icon: <TfiEmail/>, name: 'Email', content: 'kbgarcia8@gmail.com', link: ''},
+        {icon: <TfiEmail/>, name: 'Email', content: 'kbgarcia8@gmail.com', link: 'mailto:kbgarcia8@gmail.com'},
         {icon: <CiMobile3/>, name: 'Mobile', content: '+(63)936-474-3812', link: ''},
         {icon: <FaFacebookF/>, name: 'Facebook', content: 'Karl Brian Garcia', link: 'https://facebook.com/karl.b.garcia.9'},
         {icon: <FaGithub/>, name: 'Github', content: 'kbgarcia8', link: 'https://github.com/kbgarcia8'},

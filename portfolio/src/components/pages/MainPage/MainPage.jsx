@@ -164,7 +164,7 @@ const MainPage = () => {
 
     return (
         <styled.MainPageWrapper>
-            <styled.AboutSection title={'Hi, I\'m Karl Brian Garcia'} description={'Characterization/Design Engineer | Self-learning full stack developer'}>
+            <styled.AboutSection title={'Hi, I\'m KB'} description={'Characterization/Design Engineer | Self-learning full stack developer'}>
                 <styled.AboutSectionParagraph>
                     {aboutSectionParagraph}
                 </styled.AboutSectionParagraph>

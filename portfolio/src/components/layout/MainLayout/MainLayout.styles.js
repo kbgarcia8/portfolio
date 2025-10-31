@@ -33,6 +33,9 @@ export const MainLayoutFooter = styled.footer`
     position: relative;
     bottom: 0;
     grid-row: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
 export default { MainLayoutWrapper, MainLayoutHeader, MainLayoutContent, MainLayoutFooter };

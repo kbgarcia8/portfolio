@@ -13,6 +13,7 @@ import Navbar from "components/molecules/Navbar";
 import Form from "components/organisms/Form";
 import StackCard from "components/molecules/StackCard";
 import Header from "components/organisms/Header";
+import Footer from "components/organisms/Footer";
 import MainPage from "components/pages/MainPage";
 import ContactPage from "components/pages/ContactPage";
 /* SVGs */
@@ -151,7 +152,7 @@ const smallComponents = [
 const routes =[
     {
         path: "/",
-        element: <MainLayout header={<Header/>}/>,
+        element: <MainLayout header={<Header/>} footer={<Footer/>}/>,
         children: [
             {index: true, element: <MainPage/>},
             {path: "/contact", element: <ContactPage/>}
