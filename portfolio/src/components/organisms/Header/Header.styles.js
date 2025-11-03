@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { v } from "styles/variables.js";
 import Navbar from "components/molecules/Navbar";
+import { Link } from "react-router-dom";
 
 export const HeaderWrapper = styled.div`
     width: 100%;
@@ -14,12 +15,26 @@ export const HeaderWrapper = styled.div`
     -moz-box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
 `;
 
-export const HeaderLogo = styled.div`
+export const HeaderLogo = styled(Link)`
     display: flex;
     justify-content: center;
     width: 20%;
     height: 100%;
     padding: ${v.spacing.xxsmall};
+    cursor: pointer;
+    transtiion: transform 0.3s ease;
+
+    &:link {
+        text-decoration: none;
+    }
+    
+    &:visited {
+        color: ${({theme}) => theme.text};
+    }
+
+    &:hover {
+        transform: scale(1.125)
+    }
 `;
 
 export const HeaderTextLogo = styled.p`

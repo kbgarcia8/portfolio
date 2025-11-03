@@ -21,7 +21,7 @@ export const AboutSection = styled(Section)`
 export const AboutSectionParagraph = styled.p`
     height: 70%;
     line-height: 1.75rem;
-    padding-top: ${v.spacing.small};
+    padding-top: ${v.spacing.medium};
 `;
 
 export const ViewButtonContainer = styled.div`

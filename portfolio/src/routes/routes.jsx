@@ -16,6 +16,7 @@ import Header from "components/organisms/Header";
 import Footer from "components/organisms/Footer";
 import MainPage from "components/pages/MainPage";
 import ContactPage from "components/pages/ContactPage";
+import AboutPage from "components/pages/AboutPage";
 /* SVGs */
 import CashIcon from "components/svgs/CashIcon.jsx";
 import { FaReact } from "react-icons/fa";
@@ -155,7 +156,8 @@ const routes =[
         element: <MainLayout header={<Header/>} footer={<Footer/>}/>,
         children: [
             {index: true, element: <MainPage/>},
-            {path: "/contact", element: <ContactPage/>}
+            {path: "/contact", element: <ContactPage/>},
+            {path: "/about", element: <AboutPage/>}
         ]
     },
     {

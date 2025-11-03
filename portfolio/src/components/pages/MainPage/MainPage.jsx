@@ -120,6 +120,10 @@ const MainPage = () => {
         }));
     }, []);
 
+    const handleViewInfoClick = React.useCallback((e) => {
+        navigate("/about");
+    }, []);
+
     React.useEffect(()=> {
         const debounceInputTimeout = setTimeout(() => {
             setDebouncedContactFormValues(contactFormValues);
@@ -169,7 +173,7 @@ const MainPage = () => {
                     {aboutSectionParagraph}
                 </styled.AboutSectionParagraph>
                 <styled.ViewButtonContainer>
-                    <styled.ViewAbout className={'view-about'} text={"View more information"}/>
+                    <styled.ViewAbout className={'view-about'} text={"View more information"} onClick={handleViewInfoClick}/>
                 </styled.ViewButtonContainer>
             </styled.AboutSection>
             <Divider/>
