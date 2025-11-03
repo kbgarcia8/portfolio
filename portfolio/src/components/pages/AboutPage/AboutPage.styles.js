@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { v } from 'styles/variables.js';
 import Section from 'components/molecules/Section';
+import Button from 'components/atoms/Button';
 
 export const AboutPageWrapper = styled.div`
     width: 70%;
@@ -64,7 +65,7 @@ export const ExperiencesSpace = styled.div`
     justify-content: space-between;
     width: 75%;
     height: 100%;
-    border: 2px solid red;
+    margin-top: ${v.spacing.small};
 `;
 
 export const ExperienceContainer = styled. div`
@@ -74,10 +75,25 @@ export const ExperienceContainer = styled. div`
     align-items: center;
 `;
 
-export const CompanyIcon = styled.img`
+export const CompanyIconContainer = styled.div`
     width: 20%;
     height: 100%;
     margin-right: 7.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: ${v.borderRadius.large};
+    padding: ${v.spacing.xxsmall};
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover + div {
+        transform: scale(1.125);
+    }
 `;
 
 export const ExperienceInformation = styled.div`
@@ -89,6 +105,7 @@ export const ExperienceInformation = styled.div`
     border: ${v.borderThickness.thin} solid ${({theme}) => theme.blue};
     border-radius: ${v.borderRadius.small};
     padding: ${v.spacing.medium};
+    transition: transform 0.3s ease;
 
     & > * {
         margin: 0;
@@ -110,4 +127,17 @@ export const ExperienceDuration = styled.p`
     height: 15%;
     font-family: ${v.fonts.tertiary}, ${v.fonts.fallback};
     font-size: ${v.fontSize.xsmall};
+`;
+
+export const ButtonContainer = styled.div`
+    width: 100%;
+    height: 7.5%;
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+`;
+
+export const DownloadButton = styled(Button)`
+    width: 45%;
+    height: 100%;
 `;
