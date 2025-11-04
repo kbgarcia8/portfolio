@@ -5,7 +5,7 @@ import Navbar from "components/molecules/Navbar/Navbar.jsx";
 
 const links = [
     {name: "About", path:"/about"},
-    {name: "Projects", path:"/projects"},
+//    {name: "Projects", path:"/projects"},
     {name: "Contact", path:"/contact"},
 ];
 

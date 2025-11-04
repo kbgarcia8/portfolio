@@ -52,4 +52,7 @@ export const HeaderTextLogo = styled.p`
 
 export const HeaderNavbar = styled(Navbar)`
     width: 50%;
+    & ul {
+        justify-content: space-evenly;
+    }
 `;

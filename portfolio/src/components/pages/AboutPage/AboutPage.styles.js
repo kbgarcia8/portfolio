@@ -14,13 +14,14 @@ export const AboutPageWrapper = styled.div`
 
 export const HistorySection = styled(Section)`
     width: 100%;
-    height: 85vh;
+    height: 100vh;
 `;
 
 export const HistoryParagraph = styled.p`
     width: 100%;
     white-space: pre-wrap;
     font-size: ${v.fontSize.medium};
+    line-height: 1.5rem;
 `;
 
 export const PortfolioLink = styled.a`
@@ -131,13 +132,24 @@ export const ExperienceDuration = styled.p`
 
 export const ButtonContainer = styled.div`
     width: 100%;
-    height: 7.5%;
+    height: 10%;
     display: flex;
     align-items: center;
-    border: 2px solid red;
+    justify-content: center;
 `;
 
 export const DownloadButton = styled(Button)`
     width: 45%;
     height: 100%;
+    background-color: ${({theme})=>theme.teal};
+    border-radius: ${v.borderRadius.xsmall};
+
+    & span {
+        font-size: ${v.fontSize.medium};
+    }
+
+    &:hover{
+        background-color: ${({theme})=>theme.teal2};
+        color: ${({theme})=>theme.text};
+    }
 `;
