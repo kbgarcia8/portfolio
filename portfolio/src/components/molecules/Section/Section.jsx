@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from './Section.styles.js';
+import * as Styled from './Section.styles.js';
 
 const Section = ({className, title, description, children}) => {
     return(
-        <styled.SectionWrapper className={className}>
-            {title && <styled.SectionTitle>{title}</styled.SectionTitle>}
-            {description && <styled.SectionDescription>{description}</styled.SectionDescription>}
+        <Styled.SectionWrapper className={className}>
+            {title && <Styled.SectionTitle>{title}</Styled.SectionTitle>}
+            {description && <Styled.SectionDescription>{description}</Styled.SectionDescription>}
             {children}
-        </styled.SectionWrapper>
+        </Styled.SectionWrapper>
     )
 }
 

@@ -1,10 +1,9 @@
-import { element } from "prop-types";
 import React from "react";
-/* Tester */
+//* Tester
 import ComponentTester from "components/tester/ComponentTester";
-/* Layout */
+//* Layout
 import MainLayout from "components/layout/MainLayout/MainLayout";
-/* Components */
+//* Components
 import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
 import Label from "components/atoms/Label/Label";
@@ -17,7 +16,7 @@ import Footer from "components/organisms/Footer";
 import MainPage from "components/pages/MainPage";
 import ContactPage from "components/pages/ContactPage";
 import AboutPage from "components/pages/AboutPage";
-/* SVGs */
+//* SVGs
 import CashIcon from "components/svgs/CashIcon.jsx";
 import { FaReact } from "react-icons/fa";
 

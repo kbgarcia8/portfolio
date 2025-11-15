@@ -1,25 +1,25 @@
 import React from "react";
-import * as styled from './Footer.styles.js';
+import * as Styled from './Footer.styles.js';
 import { FaCopyright } from "react-icons/fa";
 
-const handleClickSourceCode = (e) => {
+const handleClickSourceCode = () => {
     window.open('https://github.com/kbgarcia8/portfolio');
 }
 
 const Footer = () => {
     return(
         <>
-        <styled.FooterDivider/>
-        <styled.FooterWrapper>
-            <styled.FooterIconAndYearContainer>
+        <Styled.FooterDivider/>
+        <Styled.FooterWrapper>
+            <Styled.FooterIconAndYearContainer>
                 {<FaCopyright/>}
                 <span>2023-2025</span>
-            </styled.FooterIconAndYearContainer>
-            <styled.FooterFullName>{'Karl Brian Garcia'}</styled.FooterFullName>
-            <styled.FooterButtonContainer>
-                <styled.FooterViewSourceCode text={"Source Code"} onClick={handleClickSourceCode}/>
-            </styled.FooterButtonContainer>
-        </styled.FooterWrapper>
+            </Styled.FooterIconAndYearContainer>
+            <Styled.FooterFullName>{'Karl Brian Garcia'}</Styled.FooterFullName>
+            <Styled.FooterButtonContainer>
+                <Styled.FooterViewSourceCode text={"Source Code"} onClick={handleClickSourceCode}/>
+            </Styled.FooterButtonContainer>
+        </Styled.FooterWrapper>
         </>
     )
 }

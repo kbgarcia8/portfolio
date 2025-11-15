@@ -1,6 +1,6 @@
 import React from "react";
 import { useTheme } from 'context/ThemeContext.jsx';
-import * as styled from "./Navbar.styles.js";
+import * as Styled from "./Navbar.styles.js";
 import PropTypes from "prop-types";
 
 const Navbar =({className, anchorTheme, links}) => {
@@ -8,15 +8,15 @@ const Navbar =({className, anchorTheme, links}) => {
 
     return(
         <>
-            <styled.DefaultNavbar className={className}>
-                <styled.NavbarLinks>
+            <Styled.DefaultNavbar className={className}>
+                <Styled.NavbarLinks>
                     {links?.map((link,index) => 
-                        <styled.NavbarLink key={`${link}-${index}`}>
-                            <styled.StyledLink to={link.path} $anchorTheme={anchorTheme ? anchorTheme : theme}>{link.name}</styled.StyledLink>
-                        </styled.NavbarLink>
+                        <Styled.NavbarLink key={`${link}-${index}`}>
+                            <Styled.StyledLink to={link.path} $anchorTheme={anchorTheme ? anchorTheme : theme}>{link.name}</Styled.StyledLink>
+                        </Styled.NavbarLink>
                     )}
-                </styled.NavbarLinks>
-            </styled.DefaultNavbar>
+                </Styled.NavbarLinks>
+            </Styled.DefaultNavbar>
         </>
     )
 }

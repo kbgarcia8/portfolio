@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from "./Button.styles.js";
+import * as Styled from "./Button.styles.js";
 
 const Button = ({
     onClick,
@@ -11,27 +11,22 @@ const Button = ({
     alt="icon",
     text="",
     className,
-    bgColor,
-    lineColor,
-    borderColor,
-    hoverColor,
-    hoverBorderColor,
     dataAttributes
 }) => {
 
     return (
-        <styled.DefaultButton
+        <Styled.DefaultButton
             onClick={onClick}
             id={id}
             type={buttonType}
             className={className}
             {...dataAttributes}
         >
-            <styled.ButtonTextAndIconSpace className={"button-icon-text-space"}>
-                {source ? <styled.ButtonIcon src={source} alt={alt} /> : svg ? svg : ''}
-                {text && <styled.ButtonText id={id} >{text}</styled.ButtonText>}
-            </styled.ButtonTextAndIconSpace>
-        </styled.DefaultButton>
+            <Styled.ButtonTextAndIconSpace className={"button-icon-text-space"}>
+                {source ? <Styled.ButtonIcon src={source} alt={alt} /> : svg ? svg : ''}
+                {text && <Styled.ButtonText id={id} >{text}</Styled.ButtonText>}
+            </Styled.ButtonTextAndIconSpace>
+        </Styled.DefaultButton>
     )
 }
 
@@ -43,11 +38,6 @@ Button.propTypes = {
     alt: PropTypes.string,
     text: PropTypes.string,
     className: PropTypes.string,
-    bgColor: PropTypes.string,
-    lineColor: PropTypes.string,
-    borderColor: PropTypes.string,
-    hoverColor: PropTypes.string,
-    hoverBorderColor: PropTypes.string,
     dataAttributes: PropTypes.object,
 }
 

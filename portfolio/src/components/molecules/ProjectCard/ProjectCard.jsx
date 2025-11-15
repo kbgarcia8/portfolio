@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from './ProjectCard.styles.js';
+import * as Styled from './ProjectCard.styles.js';
 import { FaSquareGithub } from "react-icons/fa6";
 
 const ProjectCard = ({
@@ -11,13 +11,13 @@ const ProjectCard = ({
     className
 }) => {
     return(
-        <styled.ProjectCardContainer className={className}>
-            <styled.ProjectThumbnailContainer href={href}>
-                {thumbnail ? <styled.ProjectThumbnail src={thumbnail}/> : <FaSquareGithub/>}
-            </styled.ProjectThumbnailContainer>
-            <styled.ProjectTitle>{title}</styled.ProjectTitle>
-            <styled.ProjectDescription>{description}</styled.ProjectDescription>
-        </styled.ProjectCardContainer>
+        <Styled.ProjectCardContainer className={className}>
+            <Styled.ProjectThumbnailContainer href={href}>
+                {thumbnail ? <Styled.ProjectThumbnail src={thumbnail}/> : <FaSquareGithub/>}
+            </Styled.ProjectThumbnailContainer>
+            <Styled.ProjectTitle>{title}</Styled.ProjectTitle>
+            <Styled.ProjectDescription>{description}</Styled.ProjectDescription>
+        </Styled.ProjectCardContainer>
     )
 }
 

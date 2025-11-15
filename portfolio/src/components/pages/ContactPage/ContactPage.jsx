@@ -1,9 +1,10 @@
 import React from "react";
-import * as styled from './ContactPage.styles.js';
+import * as Styled from './ContactPage.styles.js';
 import Divider from "components/atoms/Divider/Divider.jsx";
 import { TfiEmail } from "react-icons/tfi";
 import { CiMobile3 } from "react-icons/ci";
 import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
+import emailjs from '@emailjs/browser';
 
 
 const inputs = [
@@ -80,7 +81,7 @@ const initialContactFormValues = {
     'description': ''
 }
 
-/* Email JS variables */
+//* Email JS Variables
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const autoReplyTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTO_REPLY;
 const notifyMeTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OWNER_NOTIFICATION;
@@ -101,6 +102,7 @@ const ContactPage = () => {
         }));
     }, []);
 
+    // INFO: Debounced state is used for optimization, by delaying the update of state
     React.useEffect(()=> {
         const debounceInputTimeout = setTimeout(() => {
             setDebouncedContactFormValues(contactFormValues);
@@ -108,6 +110,7 @@ const ContactPage = () => {
         return () => clearTimeout(debounceInputTimeout);
     }, [contactFormValues]);
 
+    // INFO: Debounced state is used for optimization since it is the dependency for useMemo of contactFormInputs
     const contactFormInputs = React.useMemo(() => {
         return inputs.map((input, index) => ({
             ...input,
@@ -122,7 +125,7 @@ const ContactPage = () => {
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
-        //Send notification to own email
+        // INFO: Send notification to own email
         emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
@@ -131,7 +134,7 @@ const ContactPage = () => {
             alert(`Notification to kbg error: ${error.text}`)
         });
 
-        //Send auto-reply to sender of contact/query
+        // INFO: auto-reply to sender of contact/query
         emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
@@ -141,7 +144,7 @@ const ContactPage = () => {
         });
 
         setContactFormValues(initialContactFormValues);
-    },[]);
+    },[contactFormValues]);
 
     const contacts = [
         {icon: <TfiEmail/>, name: 'Email', content: 'kbgarcia8@gmail.com', link: 'mailto:kbgarcia8@gmail.com'},
@@ -152,28 +155,28 @@ const ContactPage = () => {
     ]
 
     return(
-        <styled.ContactPageWrapper>
-            <styled.ContactSection title={'Contacts'} description={'Please use the following platforms if you want to reach me. I am open for freelancing projects!'}>
+        <Styled.ContactPageWrapper>
+            <Styled.ContactSection title={'Contacts'} description={'Please use the following platforms if you want to reach me. I am open for freelancing projects!'}>
                 <Divider/>
-                <styled.ContactSpace>
+                <Styled.ContactSpace>
                     {contacts.map((contact,index) => (
-                        <styled.ContactContainer key={`${contact.name}-${index}`} to={contact.link}>
-                            <styled.IconContainer>
+                        <Styled.ContactContainer key={`${contact.name}-${index}`} to={contact.link}>
+                            <Styled.IconContainer>
                                 {contact.icon}
-                            </styled.IconContainer>
-                            <styled.InformationContainer>
-                                <styled.InformationTitle>{contact.name}</styled.InformationTitle>
-                                <styled.Information>{contact.content}</styled.Information>
-                            </styled.InformationContainer>
-                        </styled.ContactContainer>
+                            </Styled.IconContainer>
+                            <Styled.InformationContainer>
+                                <Styled.InformationTitle>{contact.name}</Styled.InformationTitle>
+                                <Styled.Information>{contact.content}</Styled.Information>
+                            </Styled.InformationContainer>
+                        </Styled.ContactContainer>
                     ))}
-                </styled.ContactSpace>
-            </styled.ContactSection>
-            <styled.QuickContactSection title={'Quick Email'} description={`You can also contact me right away by sending me the details below`}>
+                </Styled.ContactSpace>
+            </Styled.ContactSection>
+            <Styled.QuickContactSection title={'Quick Email'} description={`You can also contact me right away by sending me the details below`}>
                 <Divider/>
-                <styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit handleSubmit={handleFormSubmit}/>
-            </styled.QuickContactSection>
-        </styled.ContactPageWrapper>
+                <Styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit handleSubmit={handleFormSubmit}/>
+            </Styled.QuickContactSection>
+        </Styled.ContactPageWrapper>
     )
 }
 

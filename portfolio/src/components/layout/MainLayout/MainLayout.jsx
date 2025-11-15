@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Outlet } from 'react-router-dom';
 import { getScrollbarWidth } from 'utils/utils.js'
-import * as styled from "./MainLayout.styles.js";
+import * as Styled from "./MainLayout.styles.js";
 import PropTypes from "prop-types";
 
 const MainLayout = ({header, footer}) => {
@@ -13,13 +13,13 @@ const MainLayout = ({header, footer}) => {
     }, []);
 
     return (
-        <styled.MainLayoutWrapper $scrollbarWidth={scrollbarWidth}>
-            <styled.MainLayoutHeader>{header}</styled.MainLayoutHeader>
-            <styled.MainLayoutContent>
+        <Styled.MainLayoutWrapper $scrollbarWidth={scrollbarWidth}>
+            <Styled.MainLayoutHeader>{header}</Styled.MainLayoutHeader>
+            <Styled.MainLayoutContent>
                 <Outlet context={{}}/>
-            </styled.MainLayoutContent>
-            <styled.MainLayoutFooter>{footer}</styled.MainLayoutFooter>
-        </styled.MainLayoutWrapper>
+            </Styled.MainLayoutContent>
+            <Styled.MainLayoutFooter>{footer}</Styled.MainLayoutFooter>
+        </Styled.MainLayoutWrapper>
     )
 }
 

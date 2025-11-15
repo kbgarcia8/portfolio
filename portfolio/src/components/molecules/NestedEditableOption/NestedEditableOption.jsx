@@ -1,5 +1,5 @@
 import React from "react";
-import * as styled from './NestedEditableOption.styles.js';
+import * as Styled from './NestedEditableOption.styles.js';
 import Input from "components/atoms/Input";
 import PropTypes from 'prop-types';
 
@@ -13,10 +13,10 @@ const NestedEditableOption = ({
     onClickDeleteEntry
 }) => {
     return (
-        <styled.FormFieldset className={"editable-selection-fieldset"}>
-            <styled.FormLegend>{`${legend} ${idx + 1}`}</styled.FormLegend>
+        <Styled.FormFieldset className={"editable-selection-fieldset"}>
+            <Styled.FormLegend>{`${legend} ${idx + 1}`}</Styled.FormLegend>
             {editableInformation.map((information, informationidx) => (
-                <styled.LabelAndInputContainer key={`${information.name}-${informationidx}`} className={"editable-selection-container"}>
+                <Styled.LabelAndInputContainer key={`${information.name}-${informationidx}`} className={"editable-selection-container"}>
                     <Input
                         id={`editable-selection-${informationidx}`}
                         placeholderText={information['name'].charAt(0).toUpperCase() + information['name'].slice(1)}
@@ -26,18 +26,18 @@ const NestedEditableOption = ({
                         isRequired={true}
                         className={"editable-selection"}                                       
                         dataAttributes={{
-                            "data-index": informationidx, //should be idx to correspond to radio button index and not with input increment
+                            "data-index": informationidx, //* should be idx to correspond to radio button index and not with input increment
                             "data-key": information['info']
                         }}
                     />
-                </styled.LabelAndInputContainer>
+                </Styled.LabelAndInputContainer>
             ))}                                            
-            <styled.ButtonContainer className={"editable-selection-button-space"}>
+            <Styled.ButtonContainer className={"editable-selection-button-space"}>
                 <Button id={`editable-selection-${idx}-submit`} buttonType={"submit"} text={"Save"} onClick={onClickSaveEdit} className={"editable-selection-btn"} dataAttributes={{"data-index": idx}}/>
                 <Button id={`editable-selection-${idx}-cancel`} buttonType={"button"} text={"Cancel"} onClick={onClickCancelEdit} className={"editable-selection-btn"} dataAttributes={{"data-index": idx}}/>
                 <Button id={`editable-selection-${idx}-delete`} buttonType={"button"} text={"Delete"} onClick={onClickDeleteEntry} className={"editable-selection-btn"} dataAttributes={{"data-index": idx}}/>
-            </styled.ButtonContainer>
-        </styled.FormFieldset>
+            </Styled.ButtonContainer>
+        </Styled.FormFieldset>
     )
 }
 

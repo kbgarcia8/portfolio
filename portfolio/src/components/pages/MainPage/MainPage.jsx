@@ -1,11 +1,10 @@
 import React from "react";
 import emailjs from 'emailjs-com';
-import PropTypes from "prop-types";
 import Divider from "components/atoms/Divider";
-import * as styled from './MainPage.styles.js';
+import * as Styled from './MainPage.styles.js';
 import { useTheme } from "context/ThemeContext.jsx";
 import { useNavigate } from "react-router-dom";
-/* Icons */
+//* Icons
 import { FaPython } from "react-icons/fa6";
 import { SiGnubash, SiPerl, SiGoogleappsscript, SiVercel, SiPrisma } from "react-icons/si";
 import { FaFeatherAlt, FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
@@ -95,7 +94,7 @@ const initialContactFormValues = {
     'description': ''
 }
 
-/* Email JS variables */
+//* Email JS Variables
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const autoReplyTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTO_REPLY;
 const notifyMeTemplate = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OWNER_NOTIFICATION;
@@ -120,10 +119,11 @@ const MainPage = () => {
         }));
     }, []);
 
-    const handleViewInfoClick = React.useCallback((e) => {
+    const handleViewInfoClick = React.useCallback(() => {
         navigate("/about");
-    }, []);
+    }, [navigate]);
 
+    // INFO: Debounced state is used for optimization, by delaying the update of state
     React.useEffect(()=> {
         const debounceInputTimeout = setTimeout(() => {
             setDebouncedContactFormValues(contactFormValues);
@@ -131,6 +131,7 @@ const MainPage = () => {
         return () => clearTimeout(debounceInputTimeout);
     }, [contactFormValues]);
 
+    // INFO: Debounced state is used for optimization since it is the dependency for useMemo of contactFormInputs
     const contactFormInputs = React.useMemo(() => {
         return inputs.map((input, index) => ({
             ...input,
@@ -145,7 +146,7 @@ const MainPage = () => {
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
-        //Send notification to own email
+        // INFO: Send notification to own email
         emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
@@ -154,7 +155,7 @@ const MainPage = () => {
             alert(`Notification to kbg error: ${error.text}`)
         });
 
-        //Send auto-reply to sender of contact/query
+        // INFO: auto-reply to sender of contact/query
         emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
@@ -164,53 +165,53 @@ const MainPage = () => {
         });
 
         setContactFormValues(initialContactFormValues);
-    },[]);
+    },[contactFormValues]);
 
     return (
-        <styled.MainPageWrapper>
-            <styled.AboutSection title={'Hi, I\'m KB'} description={'Characterization/Design Engineer | Self-learning full stack developer'}>
-                <styled.AboutSectionParagraph>
+        <Styled.MainPageWrapper>
+            <Styled.AboutSection title={'Hi, I\'m KB'} description={'Characterization/Design Engineer | Self-learning full stack developer'}>
+                <Styled.AboutSectionParagraph>
                     {aboutSectionParagraph}
-                </styled.AboutSectionParagraph>
-                <styled.ViewButtonContainer>
-                    <styled.ViewAbout className={'view-about'} text={"View more information"} onClick={handleViewInfoClick}/>
-                </styled.ViewButtonContainer>
-            </styled.AboutSection>
+                </Styled.AboutSectionParagraph>
+                <Styled.ViewButtonContainer>
+                    <Styled.ViewAbout className={'view-about'} text={"View more information"} onClick={handleViewInfoClick}/>
+                </Styled.ViewButtonContainer>
+            </Styled.AboutSection>
             <Divider/>
-            <styled.TechStackSection title={'Tech Stack'} description={'Colored boxes in each stack indicates proficiency: 1 - Basic Knowledge 2 - Minimal experience and limited Proficiency 3 - Intermediate Proficiency 4 - High Proficiency 5 - Expert Proficiency'}>
-                <styled.StackContainer>
-                    <styled.StyledStackCard rating={3} text={'Perl'} icon={<SiPerl/>} bgColor={'#1981AA'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={4} text={'Bash/Unix'} icon={<SiGnubash/>} bgColor={'gray'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={3} text={'Python'} icon={<FaPython/>} bgColor={'#FFE873'}/>
-                    <styled.StyledStackCard rating={2} text={'Tcl'} icon={<FaFeatherAlt/>} bgColor={'#BADA55'}/>
-                    <styled.StyledStackCard rating={3} text={'JavaScript'} icon={<IoLogoJavascript/>} bgColor={'#F0DB4F'}/>
-                    <styled.StyledStackCard rating={2} text={'Google Apps Script'} icon={<SiGoogleappsscript/>} bgColor={'#EA4335'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={3} text={'HTML5'} icon={<FaHtml5/>} bgColor={'#F06529'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={3} text={'CSS'} icon={<FaCss3/>} bgColor={'#663399'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={2} text={'ReactJS'} icon={<FaReact/>} bgColor={'#61DBFB'}/>
-                    <styled.StyledStackCard rating={2} text={'NodeJS'} icon={<FaNodeJs/>} bgColor={'#68A063'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={1} text={'Git'} icon={<FaGitAlt/>} bgColor={'	#3E2C00'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={1} text={'Vercel'} icon={<SiVercel color={`${currentTheme.bg}`}/>} bgColor={`${currentTheme.text}`} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={2} text={'VSCode'} icon={<VscVscode/>} bgColor={'#007ACC'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={1} text={'Firebase'} icon={<IoLogoFirebase/>} bgColor={'#FF9100'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={2} text={'PostgreSQL'} icon={<BiLogoPostgresql/>} bgColor={'#336791'} textColor={`${currentTheme.bg}`}/>
-                    <styled.StyledStackCard rating={2} text={'Prisma ORM'}icon={<SiPrisma/>} bgColor={'#EA3E3C'} textColor={`${currentTheme.bg}`}/>
-                </styled.StackContainer>
-            </styled.TechStackSection>
+            <Styled.TechStackSection title={'Tech Stack'} description={'Colored boxes in each stack indicates proficiency: 1 - Basic Knowledge 2 - Minimal experience and limited Proficiency 3 - Intermediate Proficiency 4 - High Proficiency 5 - Expert Proficiency'}>
+                <Styled.StackContainer>
+                    <Styled.StyledStackCard rating={3} text={'Perl'} icon={<SiPerl/>} bgColor={'#1981AA'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={4} text={'Bash/Unix'} icon={<SiGnubash/>} bgColor={'gray'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={3} text={'Python'} icon={<FaPython/>} bgColor={'#FFE873'}/>
+                    <Styled.StyledStackCard rating={2} text={'Tcl'} icon={<FaFeatherAlt/>} bgColor={'#BADA55'}/>
+                    <Styled.StyledStackCard rating={3} text={'JavaScript'} icon={<IoLogoJavascript/>} bgColor={'#F0DB4F'}/>
+                    <Styled.StyledStackCard rating={2} text={'Google Apps Script'} icon={<SiGoogleappsscript/>} bgColor={'#EA4335'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={3} text={'HTML5'} icon={<FaHtml5/>} bgColor={'#F06529'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={3} text={'CSS'} icon={<FaCss3/>} bgColor={'#663399'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={2} text={'ReactJS'} icon={<FaReact/>} bgColor={'#61DBFB'}/>
+                    <Styled.StyledStackCard rating={2} text={'NodeJS'} icon={<FaNodeJs/>} bgColor={'#68A063'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={1} text={'Git'} icon={<FaGitAlt/>} bgColor={'	#3E2C00'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={1} text={'Vercel'} icon={<SiVercel color={`${currentTheme.bg}`}/>} bgColor={`${currentTheme.text}`} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={2} text={'VSCode'} icon={<VscVscode/>} bgColor={'#007ACC'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={1} text={'Firebase'} icon={<IoLogoFirebase/>} bgColor={'#FF9100'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={2} text={'PostgreSQL'} icon={<BiLogoPostgresql/>} bgColor={'#336791'} textColor={`${currentTheme.bg}`}/>
+                    <Styled.StyledStackCard rating={2} text={'Prisma ORM'}icon={<SiPrisma/>} bgColor={'#EA3E3C'} textColor={`${currentTheme.bg}`}/>
+                </Styled.StackContainer>
+            </Styled.TechStackSection>
             <Divider/>
-            <styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
-                <styled.ProjectCardContainer>
-                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                    <styled.StyledProjectCard href={'/'} title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
-                </styled.ProjectCardContainer>
-            </styled.ProjectSection>
+            <Styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
+                <Styled.ProjectCardContainer>
+                    <Styled.StyledProjectCard href={'/'} title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <Styled.StyledProjectCard href={'/'} title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <Styled.StyledProjectCard href={'/'} title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <Styled.StyledProjectCard href={'/'} title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                </Styled.ProjectCardContainer>
+            </Styled.ProjectSection>
             <Divider/>
-            <styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
-                <styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit handleSubmit={handleFormSubmit}/>
-            </styled.QuickContactSection>
-        </styled.MainPageWrapper>
+            <Styled.QuickContactSection title={'Contact Me'} description={`I'll be thrilled to be part of your next project. Send me the details below`}>
+                <Styled.QuickContactForm fieldsetHeight={'60vh'} inputClassName={'contact-me-form-inputs'} id={'contact-me'} formInputs={contactFormInputs} labelAndInputContainerClass={'contact-label-input-container'} hasSubmit handleSubmit={handleFormSubmit}/>
+            </Styled.QuickContactSection>
+        </Styled.MainPageWrapper>
     )
 }
 

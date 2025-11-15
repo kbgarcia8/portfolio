@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from "./Divider.styles.js";
 import { useTheme } from 'context/ThemeContext.jsx';
-
+import * as Styled from "./Divider.Styled";
 
 const Divider = ({ 
     dividerText, 
@@ -15,15 +14,15 @@ const Divider = ({
     const { currentTheme } = useTheme();
     
     return(
-        <styled.DividerContainer className={className}>
-            <styled.DividerLine $lineThickness={lineThickness ?? '1px'} $lineColor={lineColor ?? currentTheme.blue} >
+        <Styled.DividerContainer className={className}>
+            <Styled.DividerLine $lineThickness={lineThickness ?? '1px'} $lineColor={lineColor ?? currentTheme.blue} >
             {dividerText && 
-            <styled.DividerText 
+            <Styled.DividerText 
                 $textColor={textColor ?? currentTheme.text} 
                 $screenColor={screenColor ?? currentTheme.bg}
-            >{dividerText}</styled.DividerText>}
-            </styled.DividerLine>
-        </styled.DividerContainer>
+            >{dividerText}</Styled.DividerText>}
+            </Styled.DividerLine>
+        </Styled.DividerContainer>
     );
 }
 

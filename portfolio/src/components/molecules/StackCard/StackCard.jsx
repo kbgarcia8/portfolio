@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from './StackCard.styles.js';
+import * as Styled from './StackCard.styles.js';
 import { useTheme } from "context/ThemeContext.jsx";
 import { isLightColor } from "utils/utils.js";
 
@@ -26,25 +26,25 @@ const StackCard = ({
     const immediateTextColor = textColor ?? currentTheme.text;
 
     return(
-        <styled.StackCardContainer className={className} $borderColor={borderColor ?? currentTheme.text} $bgColor={bgColor}>
-            <styled.RatingBoxContainer>
+        <Styled.StackCardContainer className={className} $borderColor={borderColor ?? currentTheme.text} $bgColor={bgColor}>
+            <Styled.RatingBoxContainer>
                 {ratingArray.map((rate,index) => (
-                   <styled.RatingBox
+                   <Styled.RatingBox
                         key={`ratebox-${index}`}
                         $bgColor={rate === 1 ? bgColor : isLightColor(immediateTextColor) ? '#000000' : '#FFFFFF'}
                         $borderColor={isLightColor(immediateTextColor) ? '#000000' :'#FFFFFF'}
-                    ></styled.RatingBox>
+                    ></Styled.RatingBox>
                 ))}
-            </styled.RatingBoxContainer>
-            <styled.IconAndTextContainer>
-                <styled.IconContainer $textColor={immediateTextColor}>
+            </Styled.RatingBoxContainer>
+            <Styled.IconAndTextContainer>
+                <Styled.IconContainer $textColor={immediateTextColor}>
                     {icon}
-                </styled.IconContainer>
-                <styled.TextContainer $textColor={immediateTextColor}>
+                </Styled.IconContainer>
+                <Styled.TextContainer $textColor={immediateTextColor}>
                     {text}
-                </styled.TextContainer>
-            </styled.IconAndTextContainer>
-        </styled.StackCardContainer>
+                </Styled.TextContainer>
+            </Styled.IconAndTextContainer>
+        </Styled.StackCardContainer>
     )
 }
 

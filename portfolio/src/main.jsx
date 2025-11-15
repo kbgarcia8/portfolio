@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import GlobalStyle from './styles/globalStyles';
+import GlobalStyle from './styles/globalStyles.js';
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import routes from "./routes/routes.jsx"

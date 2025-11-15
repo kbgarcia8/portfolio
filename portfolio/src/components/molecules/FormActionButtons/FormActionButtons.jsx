@@ -1,5 +1,5 @@
 import React from "react";
-import * as styled from './FormActionButtons.styles.js';
+import * as Styled from './FormActionButtons.styles.js';
 import Button from "components/atoms/Button";
 import PropTypes from 'prop-types';
 
@@ -19,12 +19,12 @@ const FormActionButtons = ({
     handleDelete,
 }) => {
     return(
-        <styled.ButtonContainer className={"form-main-button-container"}>
+        <Styled.ButtonContainer className={"form-main-button-container"}>
             {hasSubmit && <Button id={`form-${id}-submit`} buttonType={"submit"} text={submitText ?? "Submit"} onClick={handleSubmit} className={"submit-form-btn"}/>}
             {hasEdit && <Button id={`form-${id}-edit`} buttonType={"button"} text={editText ?? "Edit"} onClick={handleEdit} className={"edit-form-btn"}/>}
             {hasCancel && <Button id={`form-${id}-cancel`} buttonType={"button"} text={cancelText ?? "Cancel"} onClick={handleCancel} className={"cancel-form-btn"}/>}                
             {hasDelete && <Button id={`form-${id}-delete`} buttonType={"button"} text={deleteText ?? "Delete"} onClick={handleDelete} className={"delete-form-btn"}/>}
-        </styled.ButtonContainer>
+        </Styled.ButtonContainer>
     )
 };
 

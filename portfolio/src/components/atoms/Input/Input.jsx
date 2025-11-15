@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import {DefaultInput, TextArea} from "./Input.styles.js";
+import * as Styled from "./Input.styles.js";
 
 const Input = forwardRef(({ 
     id,
@@ -20,7 +21,7 @@ const Input = forwardRef(({
 }, ref) => {
     return (
         type !== "textarea"
-        ? <DefaultInput
+        ? <Styled.DefaultInput
             id={id}
             name={id}
             placeholder={placeholderText}
@@ -35,7 +36,7 @@ const Input = forwardRef(({
             disabled={disabled}
             pattern={pattern}
         />
-        : <TextArea
+        : <Styled.TextArea
             id={id}
             placeholder={placeholderText}
             onChange={onChange}

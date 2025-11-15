@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styled from "./Label.styles.js";
+import * as Styled from "./Label.Styled";
 
 const Label = ({
     htmlFor, 
@@ -13,14 +13,14 @@ const Label = ({
     children
 }) => {
     return(
-        <styled.DefaultLabel htmlFor={htmlFor} className={className} $labelFlexDirection={labelFlexDirection}>
-            {(source || svg) && <styled.LabelIconContainer className={"label-icon-container"}>
-                {source ? <img src={source} alt={alt} /> : svg ? svg : ''}
-            </styled.LabelIconContainer>}
-            <styled.MainLabelText className={"main-label"}>{textLabel}</styled.MainLabelText>
-            {addtionalInfo && <styled.LabelAdditionalInfo className={"additional-info"} >{addtionalInfo}</styled.LabelAdditionalInfo>}
+        <Styled.DefaultLabel htmlFor={htmlFor} className={className} $labelFlexDirection={labelFlexDirection}>
+            {(source || svg) && <Styled.LabelIconContainer className={"label-icon-container"}>
+                {source ? <img src={source} alt={`${htmlFor}-label-icon`} /> : svg ? svg : ''}
+            </Styled.LabelIconContainer>}
+            <Styled.MainLabelText className={"main-label"}>{textLabel}</Styled.MainLabelText>
+            {addtionalInfo && <Styled.LabelAdditionalInfo className={"additional-info"} >{addtionalInfo}</Styled.LabelAdditionalInfo>}
             {children}
-        </styled.DefaultLabel>
+        </Styled.DefaultLabel>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styled from './AboutPage.styles.js';
+import * as Styled from './AboutPage.styles.js';
 import Divider from 'components/atoms/Divider';
 import { useTheme } from 'context/ThemeContext.jsx';
 import xinyx from 'assets/xinyx.png';
@@ -37,33 +37,33 @@ const AboutPage = () => {
     const { currentTheme } = useTheme();
 
     return(
-        <styled.AboutPageWrapper>
-            <styled.HistorySection title={'About Me'}>
+        <Styled.AboutPageWrapper>
+            <Styled.HistorySection title={'About Me'}>
                 <Divider lineColor={currentTheme.teal}/>
-                <styled.HistoryParagraph>
+                <Styled.HistoryParagraph>
                     {historyParagraphText}
-                    <styled.PortfolioLink href={'kbgarci8@dev.com'}>{'kbgarci8@dev.com'}</styled.PortfolioLink>
-                </styled.HistoryParagraph>
-            </styled.HistorySection>
-            <styled.ExperienceSection title={'Job Experience'} description={'Below are my experiences in the corporate world, though there no tech/software related planning to shift careers in software or tech development'}>
+                    <Styled.PortfolioLink href={'kbgarci8@dev.com'}>{'kbgarci8@dev.com'}</Styled.PortfolioLink>
+                </Styled.HistoryParagraph>
+            </Styled.HistorySection>
+            <Styled.ExperienceSection title={'Job Experience'} description={'Below are my experiences in the corporate world, though there no tech/software related planning to shift careers in software or tech development'}>
                 <Divider lineColor={currentTheme.teal}/>
-                <styled.ExperiencesSpace>
+                <Styled.ExperiencesSpace>
                     {experiences.map((experience, index) => (
-                        <styled.ExperienceContainer key={`experience-${index}`}>
-                            <styled.CompanyIconContainer><img src={experience.icon}/></styled.CompanyIconContainer>
-                            <styled.ExperienceInformation>
-                                <styled.ExperienceTitle>{experience.title}</styled.ExperienceTitle>
-                                <styled.ExperienceCompany>{experience.company}</styled.ExperienceCompany>
-                                <styled.ExperienceDuration>{experience.duration}</styled.ExperienceDuration>
-                            </styled.ExperienceInformation>
-                        </styled.ExperienceContainer>
+                        <Styled.ExperienceContainer key={`experience-${index}`}>
+                            <Styled.CompanyIconContainer><img src={experience.icon}/></Styled.CompanyIconContainer>
+                            <Styled.ExperienceInformation>
+                                <Styled.ExperienceTitle>{experience.title}</Styled.ExperienceTitle>
+                                <Styled.ExperienceCompany>{experience.company}</Styled.ExperienceCompany>
+                                <Styled.ExperienceDuration>{experience.duration}</Styled.ExperienceDuration>
+                            </Styled.ExperienceInformation>
+                        </Styled.ExperienceContainer>
                     ))}
-                    <styled.ButtonContainer>
-                        <styled.DownloadButton text={'Download Resume'} onClick={() => {confirm('Download Karl Brian Garcia CV?') && handleDownloadResumeClick()}}/>
-                    </styled.ButtonContainer>
-                </styled.ExperiencesSpace>
-            </styled.ExperienceSection>
-        </styled.AboutPageWrapper>
+                    <Styled.ButtonContainer>
+                        <Styled.DownloadButton text={'Download Resume'} onClick={() => {confirm('Download Karl Brian Garcia CV?') && handleDownloadResumeClick()}}/>
+                    </Styled.ButtonContainer>
+                </Styled.ExperiencesSpace>
+            </Styled.ExperienceSection>
+        </Styled.AboutPageWrapper>
     )
 };
 

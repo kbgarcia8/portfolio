@@ -1,5 +1,5 @@
 import React from "react";
-import * as styled from './LabeledInput.styles.js';
+import * as Styled from './LabeledInput.styles.js';
 import Label from "components/atoms/Label";
 import Input from "components/atoms/Input";
 import PropTypes from 'prop-types';
@@ -35,7 +35,7 @@ const LabeledInput = ({
     children
 }) => {
     return(
-        <styled.LabelAndInputContainer className={`${className} ${name}-label-input-container ${!!checked ? "selected" : ""}`}>
+        <Styled.LabelAndInputContainer className={`${className} ${name}-label-input-container ${checked ? "selected" : ""}`}>
             {type !== 'radio' && <Label htmlFor={id} textLabel={label} additionalInfo={additionalInfo} $labelDirection={direction} svg={icon} className={labelClass} />}
             <Input
                 id={id}
@@ -55,12 +55,12 @@ const LabeledInput = ({
             />
             {type === 'radio' && <Label htmlFor={id} textLabel={label} addtionalInfo={additionalInfo} $labelDirection={direction} svg={icon} className={labelClass} />}
             {/* If input (usually radio) acting as selection/option */}
-            {isEditable && <styled.EditableInputButtonContainer className={"input-edit-buttons"}>
+            {isEditable && <Styled.EditableInputButtonContainer className={"input-edit-buttons"}>
                     <Button id={`editable-${id}-edit-btn`} svg={editIcon} buttonType={"button"} onClick={onClickEdit} className={`edit-radio-${idx}`} dataAttributes={dataAttributes}/>
                     <Button id={`editable-${id}-delete-btn`} svg={deleteIcon} buttonType={"button"} onClick={onClickDelete} className={`delete-radio-${idx}`} dataAttributes={dataAttributes}/>
-                </styled.EditableInputButtonContainer>}
+                </Styled.EditableInputButtonContainer>}
             {children}
-        </styled.LabelAndInputContainer>
+        </Styled.LabelAndInputContainer>
     )
 }
 

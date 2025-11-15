@@ -6,19 +6,19 @@ import Label from "components/atoms/Label"
 import LabeledInput from "components/molecules/LabeledInput";
 import NestedEditableOption from "components/molecules/NestedEditableOption";
 import FormActionButtons from "components/molecules/FormActionButtons";
-import * as styled from "./From.styles.js";
+import * as Styled from "./From.styles.js";
 
 const Form = ({
-    fieldsets = null, // if a form has differrent fieldsets
-    legendText, // if form has no fieldsets, depends if you have fieldset for solo form
-    fieldsetHeight, // if form has no fieldsets this is required
-    isExpandable = false, // if form has no fieldsets this is default to false - to add inputs
+    fieldsets = null, //* if a form has differrent fieldsets
+    legendText, //* if form has no fieldsets, depends if you have fieldset for solo form
+    fieldsetHeight, //* if form has no fieldsets this is required
+    isExpandable = false, //* if form has no fieldsets this is default to false - to add inputs
     id,
-    formInputs, //object that contains the input fields information to make it reusable
+    formInputs, //* object that contains the input fields information to make it reusable
     labelAndInputContainerClass,
     labelClassName,
     inputClassName,
-    handleEditableInputEntryChange, //handles change on editable inputs
+    handleEditableInputEntryChange, //* handles change on editable inputs
     handleAddingInputEntry,
     hasSubmit = false,
     hasCancel = false,
@@ -33,16 +33,15 @@ const Form = ({
     editText,
     handleEdit,
     className,
-    children //if there are nodes to be inserted after submit/edit/cancel buttons usually in login or signup forms
+    children //* if there are nodes to be inserted after submit/edit/cancel buttons usually in login or signup forms
 }) => {
-    {/*console.dir(paymentFieldSet, { depth: null });*/}
     return (
-        <styled.Form id={`${id}-form`} className={className} onSubmit={handleSubmit}>
+        <Styled.Form id={`${id}-form`} className={className} onSubmit={handleSubmit}>
             {fieldsets !== null
                 ? fieldsets.map((fieldset, fieldsetIdx) => (
-                    <styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} $fieldsetHeight={fieldset.height}>
-                        <styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`} className="form-fieldset">
-                            {fieldset.legend && <styled.FormLegend>{fieldset.legend}</styled.FormLegend>}
+                    <Styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} $fieldsetHeight={fieldset.height}>
+                        <Styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`} className="form-fieldset">
+                            {fieldset.legend && <Styled.FormLegend>{fieldset.legend}</Styled.FormLegend>}
                             {fieldset['inputs'].length !== 0
                             ? fieldset['inputs'].map((input, inputIndex) => (
                                 <React.Fragment key={`form-${id}-${inputIndex}`}>
@@ -75,7 +74,7 @@ const Form = ({
                                     onClickDelete={input?.onclickdelete}
                                     idx={inputIndex}
                                 />
-                                {/*For editable data e.g. address entry, education entry*/}
+                                //* For editable data e.g. address entry, education entry
                                 {(input.editable && input.editing) && <NestedEditableOption
                                     legend={`${fieldset.legend} ${inputIndex+1}`}
                                     idx={inputIndex}
@@ -87,19 +86,19 @@ const Form = ({
                                 />}
                                 </React.Fragment>
                             ))
-                            : (fieldset.expandable ? <styled.FieldsetNoEntryMessage>{`No entry yet on ${fieldset.legend}. Click "+" button to add entry.`}</styled.FieldsetNoEntryMessage> : "")
+                            : (fieldset.expandable ? <Styled.FieldsetNoEntryMessage>{`No entry yet on ${fieldset.legend}. Click "+" button to add entry.`}</Styled.FieldsetNoEntryMessage> : "")
                             }
-                        </styled.FormFieldset>
+                        </Styled.FormFieldset>
                         {fieldset.expandable && 
-                            <styled.ButtonContainer className={"add-input-button-space"}>
+                            <Styled.ButtonContainer className={"add-input-button-space"}>
                                 <Button id={`expand-${fieldset.legend}-inputs`} buttonType={"button"} text={"+"} onClick={handleAddingInputEntry} className={`add-input-entry`}/>
-                            </styled.ButtonContainer>
+                            </Styled.ButtonContainer>
                         }
-                    </styled.FieldsetWrapper>
+                    </Styled.FieldsetWrapper>
                 ))
-                : <styled.FieldsetWrapper $fieldsetHeight={fieldsetHeight}>
-                    <styled.FormFieldset id={`${id}-form-fieldset`} className="form-fieldset">
-                        {legendText && <styled.FormLegend>{legendText}</styled.FormLegend>}
+                : <Styled.FieldsetWrapper $fieldsetHeight={fieldsetHeight}>
+                    <Styled.FormFieldset id={`${id}-form-fieldset`} className="form-fieldset">
+                        {legendText && <Styled.FormLegend>{legendText}</Styled.FormLegend>}
                         {formInputs.length !== 0
                         ? formInputs.map((input, inputIndex) => (
                             <React.Fragment key={`form-${id}-${inputIndex}`}>
@@ -112,7 +111,7 @@ const Form = ({
                                     label={input.label}
                                     additionalInfo={input.additionalInfo}
                                     direction={input.direction}
-                                    icon={input.icon} //svg only
+                                    icon={input.icon} //* svg only
                                     labelClass={labelClassName}
                                     placeholder={input?.placeholder}
                                     onchange={input.onchange}
@@ -144,13 +143,13 @@ const Form = ({
                                 />}
                             </React.Fragment>
                         ))
-                        : (isExpandable ? (<styled.FieldsetNoEntryMessage>{`No entry yet on ${legendText}. Please click "+" button to add`}</styled.FieldsetNoEntryMessage>) : "")
+                        : (isExpandable ? (<Styled.FieldsetNoEntryMessage>{`No entry yet on ${legendText}. Please click "+" button to add`}</Styled.FieldsetNoEntryMessage>) : "")
                         }
-                    </styled.FormFieldset>
-                    {isExpandable && <styled.ButtonContainer className={"add-input-button-space"}>
+                    </Styled.FormFieldset>
+                    {isExpandable && <Styled.ButtonContainer className={"add-input-button-space"}>
                         <Button id={`expand-${legendText}-inputs`} buttonType={"button"} text={"+"} onClick={handleAddingInputEntry} className={`add-input-entry`}/>
-                    </styled.ButtonContainer>}
-                </styled.FieldsetWrapper>
+                    </Styled.ButtonContainer>}
+                </Styled.FieldsetWrapper>
             }
             <FormActionButtons
                 id={id}
@@ -167,20 +166,20 @@ const Form = ({
                 deleteText={deleteText}
                 handleDelete={handleDelete}
             />
-            <styled.ChildrenContainer className={"children-container"}>
+            <Styled.ChildrenContainer className={"children-container"}>
                 {children}
-            </styled.ChildrenContainer>
-        </styled.Form>
+            </Styled.ChildrenContainer>
+        </Styled.Form>
     );
 }
 
-//Props Validation
+//*Props Validation
 const validateEditableData = (props, propName, componentName) => {
     const inputs = props.fieldsets?.flatMap(fieldset => fieldset.inputs) || [];
 
     for (const input of inputs) {
         if (input.editable) {
-            //check if there is an editing property in input object if it is editable
+            //INFO: check if there is an editing property in input object if it is editable
             if (
                 typeof input !== "object" ||
                 !input.hasOwnProperty("editing") ||
@@ -191,7 +190,7 @@ const validateEditableData = (props, propName, componentName) => {
                 );
             }
 
-            // Ensure required editable-related props are present
+            //INFO: Ensure required editable-related props are present
             const requiredProps = ["onclickedit", "editicon", "onclickdelete", "deleteicon", "onclicksave", "onclickcancel"];
             for (const key of requiredProps) {
                 if (typeof input[key] === "undefined") {
@@ -202,7 +201,7 @@ const validateEditableData = (props, propName, componentName) => {
             }
         }
 
-        //If input type is a radio must have a checked porperty
+        //INFO: If input type is a radio must have a checked porperty
         if (input.type === "radio") {
             if (
                 typeof input !== "object" ||
@@ -217,9 +216,7 @@ const validateEditableData = (props, propName, componentName) => {
     }
     return null;
 };
-/*
-    PropTypes by default are considered function that takes argument as follows: function/PropTypes (props, propName, componentName, location, propFullName)
-*/
+//INFO: PropTypes by default are considered function that takes argument as follows: function/PropTypes (props, propName, componentName, location, propFullName)
 const inputShape = PropTypes.arrayOf(
     PropTypes.shape({
     uniqueClass: PropTypes.string,
@@ -257,7 +254,7 @@ const inputShape = PropTypes.arrayOf(
 
 Form.propTypes = {
     fieldsets: (props, propName, componentName) => {
-        //PropTypes.checkPropTypes(propTypes, props, propName, componentName, location, propFullName);
+        //INFO: PropTypes.checkPropTypes(propTypes, props, propName, componentName, location, propFullName);
         const propTypesError = PropTypes.checkPropTypes(
             {
                 fieldsets: PropTypes.arrayOf(
