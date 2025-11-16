@@ -1,7 +1,7 @@
 export const breakpoints ={
-    mobile: '320px',
-    tablet: '768px',
-    desktop: '992px',
+    mobile: '320px', //Small iPhone SE & Medium: iPhone 12-15
+    tablet: '768px', //iPad 
+    desktop: '992px', //Macbook 13" (1280x800)
     largeDesktop: '1200px',
     largerDesktop: '1400px'
 }

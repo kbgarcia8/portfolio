@@ -1,6 +1,6 @@
 export const v = {
     base: {
-        fontSize: '14px',
+        fontSize: '15px',
         spacing: '24px',
         lineHeight: '1.25rem',
     },

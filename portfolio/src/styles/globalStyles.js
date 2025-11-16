@@ -6,6 +6,9 @@ import raleway from 'fonts/Raleway-Regular.ttf';
 import proxima from 'fonts/Proximanova-Regular.ttf';
 import { lightTheme, darkTheme } from './theme.js';
 
+//INFO: rem comes from root size which is in html
+//ALERT: Scalable font-size should be in html only and not in body
+
 const GlobalStyle = createGlobalStyle`
 *, *::before, *::after {
     box-sizing: border-box;
@@ -41,14 +44,17 @@ const GlobalStyle = createGlobalStyle`
     src: url('${proxima}') format('truetype');
 }
 
-html, body {
+html {
+    font-size: clamp(${v.base.fontSize}, 1.2vw + 8px, 18px);
+}
+
+body {
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(0.5vmin + ${v.base.fontSize});
-    max-width: 100vw;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, form, legend {
