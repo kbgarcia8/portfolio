@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTheme } from 'context/ThemeContext.jsx';
-import * as Styled from "./Divider.Styled";
+import * as Styled from "./Divider.styles.js";
 
 const Divider = ({ 
     dividerText, 

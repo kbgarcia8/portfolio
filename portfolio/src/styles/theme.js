@@ -1,3 +1,11 @@
+export const breakpoints ={
+    mobile: '320px',
+    tablet: '768px',
+    desktop: '992px',
+    largeDesktop: '1200px',
+    largerDesktop: '1400px'
+}
+
 export const lightTheme = {
     name: 'light',
     text: '#333446',

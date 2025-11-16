@@ -1,3 +1,6 @@
+import { css } from "styled-components";
+import { breakpoints } from "styles/theme.js";
+
 export const getScrollbarWidth = () => {
     const scrollDiv = document.createElement("div");
     scrollDiv.style.width = "100px";
@@ -33,3 +36,14 @@ export function isLightColor(hex) {
     // A midpoint threshold (~128) works well
     return luminance > 128;
 }
+
+//INFO: media object is an example of using reduce with an object accumulator to produce dynamic properties/methods
+
+export const media = Object.keys(breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${breakpoints[label]}) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});

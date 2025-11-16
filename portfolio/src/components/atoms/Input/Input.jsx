@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import {DefaultInput, TextArea} from "./Input.styles.js";
 import * as Styled from "./Input.styles.js";
 
 const Input = forwardRef(({ 

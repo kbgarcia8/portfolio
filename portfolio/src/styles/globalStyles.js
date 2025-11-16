@@ -47,7 +47,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(0.075vmin + ${v.base.fontSize});
+    font-size: calc(0.5vmin + ${v.base.fontSize});
     max-width: 100vw;
 }
 
