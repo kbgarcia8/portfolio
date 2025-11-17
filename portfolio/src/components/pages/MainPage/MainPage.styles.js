@@ -5,6 +5,7 @@ import Button from "components/atoms/Button";
 import StackCard from "components/molecules/StackCard";
 import ProjectCard from "components/molecules/ProjectCard";
 import Form from "components/organisms/Form";
+import { media } from "utils/utils.js";
 
 export const MainPageWrapper = styled.div`
     width: 70%;
@@ -15,7 +16,10 @@ export const MainPageWrapper = styled.div`
 
 export const AboutSection = styled(Section)`
     width: 100%;
-    height: 70vh;
+
+    ${media.desktop`
+        height: 70vh;
+    `}
 `;
 
 export const AboutSectionParagraph = styled.p`
@@ -102,7 +106,10 @@ export const StyledProjectCard = styled(ProjectCard)`
 
 export const QuickContactSection = styled(Section)`
     width: 100%;
-    height: 75vh;
+
+    ${media.desktop`
+        height: 80vh;
+    `}
 `;
 
 export const QuickContactForm = styled(Form)`
