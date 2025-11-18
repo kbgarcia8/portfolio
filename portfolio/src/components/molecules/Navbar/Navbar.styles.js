@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { v } from 'styles/variables.js'
 import { Link } from 'react-router-dom';
+import { media } from 'utils/utils';
 
 export const DefaultNavbar = styled.nav`
     display: flex;
@@ -25,8 +26,13 @@ export const NavbarLink = styled.li`
     cursor: pointer;
     font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
     font-weight: ${v.fontWeight.bolder};
-    font-size: ${v.fontSize.medium};
     color: ${({theme}) => theme.textColor1};
+    ${media.mobile`
+        font-size: ${v.fontSize.small};
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.medium};
+    `}
 `;
 
 export const StyledLink = styled(Link)`

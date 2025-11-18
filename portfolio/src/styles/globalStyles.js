@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
-    font-size: clamp(${v.base.fontSize}, 1.2vw + 8px, 18px);
+    font-size: clamp(${v.base.fontSize}, 1vw + 8px, 18px);
 }
 
 body {

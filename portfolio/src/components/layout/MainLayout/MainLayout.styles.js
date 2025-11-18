@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { v } from 'styles/variables.js';
+import { media } from 'utils/utils.js';
 
 export const MainLayoutWrapper = styled.div`
     display: grid;
@@ -13,7 +14,12 @@ export const MainLayoutWrapper = styled.div`
 
 export const MainLayoutHeader = styled.header`
     width: 100%;
-    height: 10vh;
+    ${media.mobile`
+        height: 7.5vh;
+    `}
+    ${media.tablet`
+        height: 10vh;
+    `}    
     position: relative;
     top: 0;
     grid-row: 1/2;

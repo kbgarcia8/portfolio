@@ -8,14 +8,22 @@ import Form from "components/organisms/Form";
 import { media } from "utils/utils.js";
 
 export const MainPageWrapper = styled.div`
-    width: 70%;
     height: 100%;
-    padding-block: ${v.spacing.medium};
-    padding-inline: ${v.spacing.xlarge};
+
+    ${media.mobile`
+        padding-block: ${v.spacing.medium};
+        padding-inline: 0;
+        width: 85%;
+    `}
+    border: 2px solid red;
 `;
 
 export const AboutSection = styled(Section)`
     width: 100%;
+
+    ${media.mobile`
+        height: 60vh;
+    `}
 
     ${media.desktop`
         height: 70vh;
@@ -23,28 +31,68 @@ export const AboutSection = styled(Section)`
 `;
 
 export const AboutSectionParagraph = styled.p`
-    height: 70%;
-    line-height: 1.75rem;
-    padding-top: ${v.spacing.medium};
+    ${media.mobile`
+        height: 70%;
+        padding-top: ${v.spacing.small};
+        font-size: calc(${v.fontSize.xsmall} + 0.10rem);
+    `}
 `;
 
 export const ViewButtonContainer = styled.div`
-    height: 10%;
+    ${media.mobile`
+        height: 7.5%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    `}
 `;
 
 export const ViewAbout = styled(Button)`
     &.view-about{
         background-color: ${({theme}) => theme.blue};
         height: 100%;
-        width: 35%;
+        ${media.mobile`
+            width: 75%;
+        `}
         border-radius: ${v.borderRadius.medium};
     }
     &:hover{
         background-color: ${({theme}) => theme.blue2};
     }
+    
     & span {
         font-size: ${v.fontSize.small};
     }
+`;
+
+export const TechStackSection = styled(Section)`
+    width: 100%;
+    
+    ${media.mobile`
+        height: 65vh;
+        & h3 {
+            font-size: calc(${v.fontSize.xsmall} + 0.15rem);
+            margin-bottom: ${v.spacing.medium};
+        }
+    `}
+    ${media.tablet`
+        height: 50vh;
+    `}
+`;
+
+export const StackContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    display: grid;
+    ${media.mobile`
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    `}
+    ${media.tablet`
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    `}
+    gap: ${v.spacing.xxsmall};
 `;
 
 export const StyledStackCard = styled(StackCard)`
@@ -56,24 +104,6 @@ export const StyledStackCard = styled(StackCard)`
     &:hover {
         transform: translateY(-${v.spacing.xsmall});
     }
-`;
-
-export const TechStackSection = styled(Section)`
-    width: 100%;
-    height: 50vh;
-
-    & h3 {
-        font-size: ${v.fontSize.small};
-    }
-`;
-
-export const StackContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: ${v.spacing.xxsmall};
 `;
 
 export const ProjectSection = styled(Section)`

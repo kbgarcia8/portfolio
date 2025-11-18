@@ -2,28 +2,35 @@ import styled from "styled-components";
 import { v } from "styles/variables.js";
 import Navbar from "components/molecules/Navbar";
 import { Link } from "react-router-dom";
+import { media } from "utils/utils";
 
 export const HeaderWrapper = styled.div`
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: space-around;
+    display: flex;    
     border-bottom: ${v.borderThickness.light} solid ${({theme}) => theme.text};
-    padding-inline: ${v.spacing.large};
     box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
     -webkit-box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
     -moz-box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
+
+    ${media.mobile`
+        justify-content: space-between;
+        padding-inline: ${v.spacing.medium};
+    `}
+
+    ${media.tablet`
+        justify-content: space-around;
+        padding-inline: ${v.spacing.large};
+    `}
 `;
 
 export const HeaderLogo = styled(Link)`
     display: flex;
     justify-content: center;
-    width: 20%;
     height: 100%;
     padding: ${v.spacing.xxsmall};
     cursor: pointer;
     transtiion: transform 0.3s ease;
-
     &:link {
         text-decoration: none;
     }
@@ -31,10 +38,19 @@ export const HeaderLogo = styled(Link)`
     &:visited {
         color: ${({theme}) => theme.text};
     }
+    ${media.mobile`
+        width: 35%;    
+        &:hover {
+            transform: scale(1.0625)
+        }
+    `}
 
-    &:hover {
-        transform: scale(1.125)
-    }
+    ${media.tablet`
+        width: 20%;
+        &:hover {
+            transform: scale(1.125)
+        }
+    `}
 `;
 
 export const HeaderTextLogo = styled.p`
@@ -51,7 +67,12 @@ export const HeaderTextLogo = styled.p`
 `;
 
 export const HeaderNavbar = styled(Navbar)`
-    width: 50%;
+    ${media.mobile`
+        width: 55%;
+    `}
+    ${media.tablet`
+        width: 50%;
+    `}
     & ul {
         justify-content: space-evenly;
     }
