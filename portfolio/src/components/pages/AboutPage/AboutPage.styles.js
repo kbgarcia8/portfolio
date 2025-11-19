@@ -2,33 +2,59 @@ import styled from 'styled-components';
 import { v } from 'styles/variables.js';
 import Section from 'components/molecules/Section';
 import Button from 'components/atoms/Button';
+import { media } from 'utils/utils.js';
 
 export const AboutPageWrapper = styled.div`
     width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-block: ${v.spacing.medium};
-    padding-inline: ${v.spacing.xxlarge};
+    ${media.mobile`
+        padding-block: ${v.spacing.medium};
+        padding-inline: 0;
+        width: 85%;
+    `}
+    border: 2px solid red;
 `;
 
 export const HistorySection = styled(Section)`
     width: 100%;
-    height: 100vh;
+    
+    ${media.mobile`
+        height: 80vh;
+        margin-bottom: ${v.spacing.xxlarge};
+    `}
+
+    ${media.desktop`
+        height: 70vh;
+    `}
 `;
 
 export const HistoryParagraph = styled.p`
     width: 100%;
+    height: 100%;
     white-space: pre-wrap;
-    font-size: ${v.fontSize.medium};
-    line-height: 1.5rem;
+    ${media.mobile`
+        font-size: ${v.fontSize.xsmall};
+        line-height: calc(${v.spacing.small} + 0.25rem);
+        margin-bottom: 0;
+    `}
+    ${media.desktop`
+        font-size: ${v.fontSize.medium};
+        line-height: 1.5rem;
+    `}
 `;
 
 export const PortfolioLink = styled.a`
-    font-size: ${v.fontSize.medium};
     font-weight: ${v.fontWeight.bolder} !important;
     font-family: ${v.fonts.secondary}, ${v.fonts.fallback};
     transition: transform 0.3s ease;
+    ${media.mobile`
+        font-size: ${v.fontSize.small};
+    `}
+    ${media.desktop`
+        font-size: ${v.fontSize.medium};
+    `}
 
     &:hover {
         color: ${({theme}) => theme.teal} !important;
@@ -51,12 +77,20 @@ export const ExperienceSection = styled(Section)`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80vh;
-
-    & h3 {
-        font-size: ${v.fontSize.medium};
-        margin-top: ${v.spacing.small};
-    }
+    ${media.mobile`
+        height: 75vh;
+        & h3 {
+            font-size: ${v.fontSize.small};
+        }
+    `}
+    ${media.tablet`
+        & h3 {
+            font-size: ${v.fontSize.medium};
+        }
+    `}
+    ${media.desktop`
+        height: 70vh;
+    `}
 `;
 
 export const ExperiencesSpace = styled.div`
@@ -64,9 +98,15 @@ export const ExperiencesSpace = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 75%;
     height: 100%;
     margin-top: ${v.spacing.small};
+    ${media.mobile`
+        width: 90%;
+    `}
+    ${media.tablet`
+        width: 75%;
+    `}
+    border: 2px solid blue;
 `;
 
 export const ExperienceContainer = styled. div`

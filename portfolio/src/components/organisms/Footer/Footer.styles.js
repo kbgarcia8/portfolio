@@ -73,7 +73,7 @@ export const FooterButtonContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 2px solid red;
+    
     ${media.mobile`
         width: 25%;
     `}
