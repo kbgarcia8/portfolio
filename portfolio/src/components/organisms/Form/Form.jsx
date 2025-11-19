@@ -6,12 +6,11 @@ import Label from "components/atoms/Label"
 import LabeledInput from "components/molecules/LabeledInput";
 import NestedEditableOption from "components/molecules/NestedEditableOption";
 import FormActionButtons from "components/molecules/FormActionButtons";
-import * as Styled from "./From.styles.js";
+import * as Styled from "./Form.styles.js";
 
 const Form = ({
     fieldsets = null, //* if a form has differrent fieldsets
     legendText, //* if form has no fieldsets, depends if you have fieldset for solo form
-    fieldsetHeight, //* if form has no fieldsets this is required
     isExpandable = false, //* if form has no fieldsets this is default to false - to add inputs
     id,
     formInputs, //* object that contains the input fields information to make it reusable
@@ -39,7 +38,7 @@ const Form = ({
         <Styled.Form id={`${id}-form`} className={className} onSubmit={handleSubmit}>
             {fieldsets !== null
                 ? fieldsets.map((fieldset, fieldsetIdx) => (
-                    <Styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} $fieldsetHeight={fieldset.height}>
+                    <Styled.FieldsetWrapper key={`${fieldset.legend}-${fieldsetIdx}`} >
                         <Styled.FormFieldset id={`${id}-form-fieldset-${fieldsetIdx}`} className="form-fieldset">
                             {fieldset.legend && <Styled.FormLegend>{fieldset.legend}</Styled.FormLegend>}
                             {fieldset['inputs'].length !== 0
@@ -96,7 +95,7 @@ const Form = ({
                         }
                     </Styled.FieldsetWrapper>
                 ))
-                : <Styled.FieldsetWrapper $fieldsetHeight={fieldsetHeight}>
+                : <Styled.FieldsetWrapper>
                     <Styled.FormFieldset id={`${id}-form-fieldset`} className="form-fieldset">
                         {legendText && <Styled.FormLegend>{legendText}</Styled.FormLegend>}
                         {formInputs.length !== 0
@@ -280,7 +279,6 @@ Form.propTypes = {
         return validateEditableData(props, propName, componentName);
     },
     legendText: PropTypes.string,
-    fieldsetHeight: PropTypes.string, 
     isExpandable: PropTypes.bool,
     id: PropTypes.string,
     formInputs: inputShape,

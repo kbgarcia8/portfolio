@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { v } from "styles/variables.js";
+import { media } from "utils/utils";
 
 export const StackCardContainer = styled.div`
     width: 100%;
@@ -31,13 +32,18 @@ export const RatingBox = styled.div`
 `;
 
 export const IconAndTextContainer = styled.div`
-    width: 100%;
     height: 100%;
     position: absolute;
     z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
+    ${media.mobile`
+        width: 90%;
+    `}
+    ${media.tablet`
+        width: 100%;
+    `}
 `;
 
 export const IconContainer = styled.div`
@@ -57,8 +63,13 @@ export const TextContainer = styled.span`
     justify-content: center;
     width: 75%;
     height: 100%;
-    font-size: ${v.fontSize.small};
     font-weight: ${v.fontWeight.bolder};
     font-family: ${v.fonts.primary}, ${v.fonts.fallback};
     color: ${(props) => props.$textColor};
+    ${media.mobile`
+        font-size: ${v.fontSize.xsmall};
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.small};
+    `}
 `;

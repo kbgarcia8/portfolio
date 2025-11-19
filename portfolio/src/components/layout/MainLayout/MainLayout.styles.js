@@ -35,13 +35,18 @@ export const MainLayoutContent = styled.main`
 
 export const MainLayoutFooter = styled.footer`
     width: 100%;
-    height: 7.5vh;
     position: relative;
     bottom: 0;
     grid-row: 3/4;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    ${media.mobile`
+        height: 5vh;
+    `}
+    ${media.tablet`
+        height: 10vh;
+    `}    
 `;
 
 export default { MainLayoutWrapper, MainLayoutHeader, MainLayoutContent, MainLayoutFooter };

@@ -5,6 +5,7 @@ import lato from 'fonts/Lato-Regular.ttf';
 import raleway from 'fonts/Raleway-Regular.ttf';
 import proxima from 'fonts/Proximanova-Regular.ttf';
 import { lightTheme, darkTheme } from './theme.js';
+import { media } from 'utils/utils.js';
 
 //INFO: rem comes from root size which is in html
 //ALERT: Scalable font-size should be in html only and not in body
@@ -86,8 +87,14 @@ h3 {
     margin-bottom: ${v.spacing.xsmall};
 }
 h4 {
-    font-size: ${v.fontSize.medium};
-    margin-bottom: ${v.spacing.xsmall};
+    ${media.mobile`
+        font-size: ${v.fontSize.xsmall};
+        margin-bottom: ${v.spacing.xxsmall};
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.medium};
+        margin-bottom: ${v.spacing.xsmall};
+    `}
 }
 h5 {
     font-family: ${v.fonts.tertiary}, ${v.fonts.fallback};

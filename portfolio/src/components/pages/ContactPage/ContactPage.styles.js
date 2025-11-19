@@ -3,6 +3,7 @@ import { v } from "styles/variables.js";
 import Section from "components/molecules/Section";
 import Form from "components/organisms/Form";
 import { Link } from "react-router-dom";
+import { media } from "utils/utils.js";
 
 export const ContactPageWrapper = styled.div`
     width: 70%;
@@ -84,6 +85,9 @@ export const QuickContactSection = styled(Section)`
 
 export const QuickContactForm = styled(Form)`
     width: 100%;
+    ${media.mobile`
+            height: 85%;
+    `}
 
     .contact-label-input-container{
         width: 85%;

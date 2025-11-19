@@ -18,7 +18,7 @@ export const FormFieldset = styled.fieldset`
 
 export const FieldsetWrapper = styled.div`
     padding: ${v.spacing.small};
-    height: ${(props) => props.$fieldsetHeight};
+    height: 100%;
     width: 100%;
 `;
 

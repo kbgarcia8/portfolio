@@ -108,17 +108,27 @@ export const StyledStackCard = styled(StackCard)`
 
 export const ProjectSection = styled(Section)`
     width: 100%;
-    height: 100vh;
+    
+    ${media.mobile`
+        height: 50vh;
+    `}
+
+    ${media.desktop`
+        height: 100vh;
+    `}
 `;
 
 export const ProjectCardContainer = styled.div`
     width: 100%;
-    height: 95%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 50%);
     gap: ${v.spacing.xsmall};
     place-items: center;
+
+    ${media.mobile`
+        height: 80%;    
+    `}
 `;
 
 export const StyledProjectCard = styled(ProjectCard)`
@@ -129,13 +139,24 @@ export const StyledProjectCard = styled(ProjectCard)`
     &>*{
         cursor: pointer;
     }
-    &:hover {
-        transform: scale(1.125);
-    }
+    ${media.mobile`
+         &:hover {
+            transform: scale(1.0625);
+        }    
+    `}
+    ${media.tablet`
+         &:hover {
+            transform: scale(1.125);
+        }    
+    `}
 `;
 
 export const QuickContactSection = styled(Section)`
     width: 100%;
+
+    ${media.mobile`
+        height: 60vh;
+    `}
 
     ${media.desktop`
         height: 80vh;
@@ -144,6 +165,9 @@ export const QuickContactSection = styled(Section)`
 
 export const QuickContactForm = styled(Form)`
     width: 100%;
+    ${media.mobile`
+            height: 85%;
+    `}
 
     .contact-label-input-container{
         width: 85%;

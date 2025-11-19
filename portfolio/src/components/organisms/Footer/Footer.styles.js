@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { v } from "styles/variables.js";
 import Button from "components/atoms/Button";
 import Divider from "components/atoms/Divider";
+import { media } from "utils/utils.js";
 
 export const FooterDivider = styled(Divider)`
     width: 55%;
@@ -39,8 +40,14 @@ export const FooterIconAndYearContainer = styled.div`
         align-items: center;
         justify-content: flex-start;
         font-family: ${v.fonts.secondary};
-        font-size: ${v.fontSize.small};
         margin-left: ${v.spacing.xsmall};
+        ${media.mobile`
+            font-size: ${v.fontSize.xsmall};
+        `}
+        ${media.tablet`
+            font-size: ${v.fontSize.small};
+        `}
+        
     }
 `;
 
@@ -48,24 +55,37 @@ export const FooterFullName = styled.span`
     width: 25%;
     height: 100%;
     font-family: ${v.fonts.primary};
-    font-size: ${v.fontSize.small};
     margin-left: ${v.spacing.xsmall};
     display: flex;
     align-items: center;
     justify-content: flex-start;
     color: ${({theme}) => theme.text};
+    ${media.mobile`
+        font-size: ${v.fontSize.xsmall};
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.small};
+    `}
 `;
 
 export const FooterButtonContainer = styled.div`
-    width: 12.5%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border: 2px solid red;
+    ${media.mobile`
+        width: 25%;
+    `}
+    ${media.largeDesktop`
+        width: 12.5%;
+    `}
 `;
 
 export const FooterViewSourceCode = styled(Button)`
-    width: 75%;
+    ${media.mobile`
+        width: 100%;
+    `}
     border-radius: ${v.borderRadius.xsmall};
     height: 75%;
     border: none;
@@ -81,8 +101,13 @@ export const FooterViewSourceCode = styled(Button)`
     }
 
     & span{
-        font-size: ${v.fontSize.small};
         font-family: ${v.fonts.secondary};
         font-weight: ${v.fontWeight.bolder};
+        ${media.mobile`
+            font-size: ${v.fontSize.xsmall};
+        `}
+        ${media.tablet`
+            font-size: ${v.fontSize.small};
+        `}
     }
 `;
