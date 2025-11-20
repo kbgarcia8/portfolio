@@ -14,7 +14,6 @@ export const AboutPageWrapper = styled.div`
         padding-inline: 0;
         width: 85%;
     `}
-    border: 2px solid red;
 `;
 
 export const HistorySection = styled(Section)`
@@ -22,7 +21,7 @@ export const HistorySection = styled(Section)`
     
     ${media.mobile`
         height: 80vh;
-        margin-bottom: ${v.spacing.xxlarge};
+        margin-bottom: ${v.spacing.large};
     `}
 
     ${media.desktop`
@@ -38,6 +37,10 @@ export const HistoryParagraph = styled.p`
         font-size: ${v.fontSize.xsmall};
         line-height: calc(${v.spacing.small} + 0.25rem);
         margin-bottom: 0;
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.small};
+        line-height: 1.25rem;
     `}
     ${media.desktop`
         font-size: ${v.fontSize.medium};
@@ -84,6 +87,7 @@ export const ExperienceSection = styled(Section)`
         }
     `}
     ${media.tablet`
+        height: 80vh;
         & h3 {
             font-size: ${v.fontSize.medium};
         }
@@ -97,27 +101,33 @@ export const ExperiencesSpace = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 100%;
     margin-top: ${v.spacing.small};
     ${media.mobile`
-        width: 90%;
+        justify-content: space-around;
+        height: 85%;
+        width: 85%;
     `}
     ${media.tablet`
+        justify-content: space-between;
+        height: 100%;
         width: 75%;
     `}
-    border: 2px solid blue;
 `;
 
 export const ExperienceContainer = styled. div`
     width: 100%;
-    height: 20%;
     display: flex;
     align-items: center;
+    ${media.mobile`
+        height: 15%;    
+    `}
+    ${media.tablet`
+        height: 20%;    
+    `}
 `;
 
 export const CompanyIconContainer = styled.div`
-    width: 20%;
+    width: 25%;
     height: 100%;
     margin-right: 7.5%;
     display: flex;
@@ -138,58 +148,86 @@ export const CompanyIconContainer = styled.div`
 `;
 
 export const ExperienceInformation = styled.div`
-    width: 70%;
+    width: 75%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: ${v.borderThickness.thin} solid ${({theme}) => theme.blue};
     border-radius: ${v.borderRadius.small};
-    padding: ${v.spacing.medium};
     transition: transform 0.3s ease;
 
     & > * {
         margin: 0;
     }
+    
+    ${media.mobile`
+        padding: ${v.spacing.xsmall};    
+    `}
+    ${media.tablet`
+        padding: ${v.spacing.medium};    
+    `}
 `;
 
 export const ExperienceTitle = styled.h4`
     width: 100%;
-    height: 50%;
+    height: 40%;
+    
 `;
 
 export const ExperienceCompany = styled.h5`
     width: 100%;
-    height: 35%;
+    height: 45%;
+    overflow: hidden;
 `;
 
 export const ExperienceDuration = styled.p`
     width: 100%;
     height: 15%;
     font-family: ${v.fonts.tertiary}, ${v.fonts.fallback};
-    font-size: ${v.fontSize.xsmall};
+    ${media.mobile`
+        font-size: ${v.fontSize.xxsmall};
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.xsmall};
+    `}
+    
 `;
 
 export const ButtonContainer = styled.div`
     width: 100%;
-    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    ${media.mobile`
+        height: 7.5%;
+    `}
+    ${media.tablet`
+        height: 10%;
+    `}
 `;
 
 export const DownloadButton = styled(Button)`
-    width: 45%;
     height: 100%;
     background-color: ${({theme})=>theme.teal};
     border-radius: ${v.borderRadius.xsmall};
-
-    & span {
-        font-size: ${v.fontSize.medium};
-    }
 
     &:hover{
         background-color: ${({theme})=>theme.teal2};
         color: ${({theme})=>theme.text};
     }
+    
+    ${media.mobile`
+        width: 75%;
+        & span {
+            font-size: ${v.fontSize.small};
+        }
+    `}
+    ${media.tablet`
+        width: 45%;
+        & span {
+            font-size: ${v.fontSize.medium};
+        }
+    `}
 `;

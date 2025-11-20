@@ -59,7 +59,7 @@ export const ProjectTitle = styled.h4`
 export const ProjectDescription = styled.p`
     width: 100%;
     overflow-y: hidden;
-    border: 2px solid red;
+    
     ${media.mobile`
         height: 50%;
         line-height: ${v.spacing.small};

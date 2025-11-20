@@ -8,27 +8,49 @@ import { media } from "utils/utils.js";
 export const ContactPageWrapper = styled.div`
     width: 70%;
     height: 100%;
-    padding-block: ${v.spacing.medium};
-    padding-inline: ${v.spacing.xxlarge};
+    display: flex;
+    flex-direction: column;
+    ${media.mobile`
+        padding-block: ${v.spacing.medium};
+        padding-inline: 0;
+        width: 85%;
+    `}
 `;
 
 export const ContactSection = styled(Section)`
     width: 100%;
-    height: 55vh;
+    ${media.mobile`
+        height: 75vh;
 
-    & h3 {
-        font-size: ${v.fontSize.medium};
-        margin-top: ${v.spacing.medium};
-    }
+        & h3 {
+            font-size: ${v.fontSize.small};
+            margin-top: ${v.spacing.small};
+        }
+    `}
+    ${media.tablet`
+        height: 55vh;
+
+        & h3 {
+            font-size: ${v.fontSize.medium};
+            margin-top: ${v.spacing.medium};
+        }
+    `}
 `;
 
 export const ContactSpace = styled.div`
-    height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 25%);
-    gap: ${v.spacing.medium};
+    ${media.mobile`
+        height: 75%;
+        gap: ${v.spacing.small};
+        grid-template-rows: repeat(5, 20%);
+    `}
+    ${media.tablet`
+        height: 100%;
+        gap: ${v.spacing.medium};
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 25%);
+    `}
 `;
 
 export const ContactContainer = styled(Link)`
@@ -43,11 +65,11 @@ export const ContactContainer = styled(Link)`
 `;
 
 export const IconContainer = styled.div`
-    width: 12.5;
+    width: 15%;
     height: 100%;
     display: flex;
     align-content: center;
-
+    
     & svg {
         width: 100%;
         height: 100%;

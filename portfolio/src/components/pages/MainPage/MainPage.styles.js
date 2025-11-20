@@ -15,7 +15,6 @@ export const MainPageWrapper = styled.div`
         padding-inline: 0;
         width: 85%;
     `}
-    border: 2px solid red;
 `;
 
 export const AboutSection = styled(Section)`

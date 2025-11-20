@@ -98,8 +98,14 @@ h4 {
 }
 h5 {
     font-family: ${v.fonts.tertiary}, ${v.fonts.fallback};
-    font-size: ${v.fontSize.small};
-    margin-bottom: ${v.spacing.xsmall};
+    ${media.mobile`
+        font-size: ${v.fontSize.xsmall};
+        margin-bottom: 0;
+    `}
+    ${media.tablet`
+        font-size: ${v.fontSize.small};
+        margin-bottom: ${v.spacing.xsmall};
+    `}
 }
 p {
     font-size: ${v.fontSize.small};
