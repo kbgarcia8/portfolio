@@ -6,7 +6,7 @@ import { media } from "utils/utils.js";
 export const Root = styled(Switch.Root)`
   height: 50%;
   width: 100%;
-  background: ${({theme}) => theme.name === 'light' ? '#abababff' : '#e1e1e1ff'};
+  background: ${({theme}) => theme.name === 'light' ? '#000000ff' : '#ccccccff'};
   border-radius: ${v.borderRadius.large};
   position: relative;
 `;

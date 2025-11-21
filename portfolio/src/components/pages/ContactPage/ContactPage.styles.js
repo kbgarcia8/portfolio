@@ -20,6 +20,10 @@ export const ContactPageWrapper = styled.div`
         padding-inline: ${v.spacing.large};
         width: 75%;
     `}
+    ${media.desktop`
+        padding-block: ${v.spacing.xlarge};
+        padding-inline: ${v.spacing.xxxlarge};
+    `}
 `;
 
 export const ContactSection = styled(Section)`
@@ -65,7 +69,6 @@ export const ContactContainer = styled(Link)`
     padding: ${v.spacing.small};
     color: ${({theme}) => theme.text};
     text-decoration: none;
-    border: 2px solid red;
 `;
 
 export const IconContainer = styled.div`
@@ -73,7 +76,6 @@ export const IconContainer = styled.div`
     height: 100%;
     display: flex;
     align-content: center;
-    border: 2px solid red;
     
     & svg {
         width: 100%;
@@ -90,7 +92,6 @@ export const InformationContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid blue;
 `;
 
 export const InformationTitle = styled.p`
@@ -102,7 +103,6 @@ export const InformationTitle = styled.p`
     font-size: ${v.fontSize.medium};
     font-family: ${v.fonts.tertiary};
     margin: 0;
-    border: 2px solid red; 
 `;
 
 export const Information = styled(InformationTitle)`

@@ -15,24 +15,25 @@ export const MainPageWrapper = styled.div`
     ${media.mobile`
         padding-block: ${v.spacing.medium};
         padding-inline: ${v.spacing.small};
-        width: 85%;
     `}
     ${media.tablet`
         padding-block: ${v.spacing.large};
         padding-inline: ${v.spacing.large};
-        width: 75%;
+    `}
+    ${media.desktop`
+        padding-block: ${v.spacing.xlarge};
+        padding-inline: ${v.spacing.xxxlarge};
     `}
 `;
 
 export const AboutSection = styled(Section)`
-    width: 100%;
-
     ${media.mobile`
         flex: 5;
+        width: 100%;
     `}
-
     ${media.desktop`
         flex: 4;
+        width: 75;
     `}
 `;
 
@@ -43,12 +44,12 @@ export const AboutSectionParagraph = styled.p`
         font-size: calc(${v.fontSize.xsmall} + 0.10rem);
     `}
     ${media.tablet`
-        
         font-size: calc(${v.fontSize.small} + 0.1rem);
         line-height: calc(${v.spacing.large} + 0.1rem);
     `}
     ${media.desktop`
-
+        font-size: ${v.fontSize.medium};
+        line-height: calc(${v.spacing.large} + 0.5rem);
     `}
 `;
 

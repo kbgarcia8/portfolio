@@ -76,12 +76,24 @@ h1 {
     margin-bottom: ${v.spacing.medium};
 }
 h2 {
-    font-size: ${v.fontSize.xlarge};
-    margin-bottom: ${v.spacing.small};
+    ${media.mobile`
+        font-size: ${v.fontSize.xlarge};
+        margin-bottom: ${v.spacing.small};
+    `}
+    ${media.desktop`
+        font-size: ${v.fontSize.xxxlarge};
+        margin-bottom: ${v.spacing.medium};
+    `}
 }
 h3 {
-    font-size: ${v.fontSize.large};
-    margin-bottom: ${v.spacing.xsmall};
+    ${media.mobile`
+        font-size: ${v.fontSize.large};
+        margin-bottom: ${v.spacing.xsmall};
+    `}
+    ${media.desktop`
+        font-size: ${v.fontSize.xxlarge};
+        margin-bottom: ${v.spacing.small};
+    `}
 }
 h4 {
     ${media.mobile`
@@ -91,6 +103,10 @@ h4 {
     ${media.tablet`
         font-size: ${v.fontSize.medium};
         margin-bottom: ${v.spacing.xsmall};
+    `}
+    ${media.desktop`
+        font-size: ${v.fontSize.large};
+        margin-bottom: ${v.spacing.medium};
     `}
 }
 h5 {

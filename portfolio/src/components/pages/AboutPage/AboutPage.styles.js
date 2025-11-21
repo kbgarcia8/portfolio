@@ -19,6 +19,10 @@ export const AboutPageWrapper = styled.div`
         padding-inline: ${v.spacing.large};
         width: 75%;
     `}
+    ${media.desktop`
+        padding-block: ${v.spacing.xlarge};
+        padding-inline: ${v.spacing.xxxlarge};
+    `}
 `;
 
 export const HistorySection = styled(Section)`
@@ -176,8 +180,7 @@ export const ExperienceInformation = styled.div`
 
 export const ExperienceTitle = styled.h4`
     width: 100%;
-    height: 40%;
-    
+    height: 40%;  
 `;
 
 export const ExperienceCompany = styled.h5`
@@ -211,6 +214,9 @@ export const ButtonContainer = styled.div`
     ${media.tablet`
         height: 10%;
     `}
+    ${media.desktop`
+        margin-top: ${v.spacing.medium};
+    `}
 `;
 
 export const DownloadButton = styled(Button)`
@@ -230,6 +236,12 @@ export const DownloadButton = styled(Button)`
         }
     `}
     ${media.tablet`
+        width: 45%;
+        & span {
+            font-size: ${v.fontSize.medium};
+        }
+    `}
+    ${media.desktop`
         width: 45%;
         & span {
             font-size: ${v.fontSize.medium};
