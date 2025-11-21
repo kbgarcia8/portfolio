@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as Styled from './Header.styles.js';
-import Navbar from "components/molecules/Navbar/Navbar.jsx";
+import ThemeToggleButton from "components/molecules/ThemeToggleButton";
 
 const links = [
     {name: "About", path:"/about"},
@@ -16,6 +16,9 @@ const Header = () => {
                 <Styled.HeaderTextLogo to={'/'}>{'kbg'}</Styled.HeaderTextLogo>
             </Styled.HeaderLogo>
             <Styled.HeaderNavbar className={'header-navbar'} links={links}/>
+            <Styled.ThemeToggleButtonSpace>
+                <ThemeToggleButton/>
+            </Styled.ThemeToggleButtonSpace>
         </Styled.HeaderWrapper>
     )
 }

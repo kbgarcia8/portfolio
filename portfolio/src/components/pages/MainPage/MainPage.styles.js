@@ -47,6 +47,9 @@ export const AboutSectionParagraph = styled.p`
         font-size: calc(${v.fontSize.small} + 0.1rem);
         line-height: calc(${v.spacing.large} + 0.1rem);
     `}
+    ${media.desktop`
+
+    `}
 `;
 
 export const ViewButtonContainer = styled.div`

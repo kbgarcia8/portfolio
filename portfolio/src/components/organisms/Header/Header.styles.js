@@ -75,3 +75,19 @@ export const HeaderNavbar = styled(Navbar)`
         justify-content: space-evenly;
     }
 `;
+
+export const ThemeToggleButtonSpace = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    ${media.mobile`
+        width: 25%;
+    `}
+    ${media.tablet`
+        width: 12.5%;
+    `}
+    ${media.desktop`
+        width: 7.5%;
+    `}
+`;

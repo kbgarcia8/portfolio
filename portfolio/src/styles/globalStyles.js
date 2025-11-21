@@ -52,9 +52,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
 }
 
