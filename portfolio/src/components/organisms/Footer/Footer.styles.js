@@ -5,9 +5,9 @@ import Divider from "components/atoms/Divider";
 import { media } from "utils/utils.js";
 
 export const FooterDivider = styled(Divider)`
-    width: 55%;
+    width: 75%;
     height: 10%;
-    margin-left: 22.5%;
+    margin-left: 12.5%;
 `;
 
 export const FooterWrapper = styled.div`

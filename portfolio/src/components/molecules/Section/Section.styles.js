@@ -3,10 +3,11 @@ import { v } from "styles/variables.js";
 import { media } from "utils/utils.js";
 
 export const SectionWrapper = styled.section`
+    flex: 1;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    min-height: 0;
     padding: ${v.spacing.medium};
 `;
 

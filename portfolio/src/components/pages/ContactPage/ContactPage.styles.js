@@ -6,21 +6,26 @@ import { Link } from "react-router-dom";
 import { media } from "utils/utils.js";
 
 export const ContactPageWrapper = styled.div`
-    width: 70%;
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
+
     ${media.mobile`
         padding-block: ${v.spacing.medium};
-        padding-inline: 0;
+        padding-inline: ${v.spacing.small};
         width: 85%;
+    `}
+        ${media.tablet`
+        padding-block: ${v.spacing.medium};
+        padding-inline: ${v.spacing.small};
+        width: 75%;
     `}
 `;
 
 export const ContactSection = styled(Section)`
     width: 100%;
     ${media.mobile`
-        height: 75vh;
+        flex: 1;
 
         & h3 {
             font-size: ${v.fontSize.small};
@@ -28,7 +33,6 @@ export const ContactSection = styled(Section)`
         }
     `}
     ${media.tablet`
-        height: 55vh;
 
         & h3 {
             font-size: ${v.fontSize.medium};
@@ -102,7 +106,7 @@ export const Information = styled(InformationTitle)`
 
 export const QuickContactSection = styled(Section)`
     width: 100%;
-    height: 75vh;
+    flex: 1;
 `;
 
 export const QuickContactForm = styled(Form)`

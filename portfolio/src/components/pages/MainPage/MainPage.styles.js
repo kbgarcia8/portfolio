@@ -8,12 +8,19 @@ import Form from "components/organisms/Form";
 import { media } from "utils/utils.js";
 
 export const MainPageWrapper = styled.div`
-    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 
     ${media.mobile`
         padding-block: ${v.spacing.medium};
-        padding-inline: 0;
+        padding-inline: ${v.spacing.small};
         width: 85%;
+    `}
+        ${media.tablet`
+        padding-block: ${v.spacing.medium};
+        padding-inline: ${v.spacing.small};
+        width: 75%;
     `}
 `;
 
@@ -21,17 +28,16 @@ export const AboutSection = styled(Section)`
     width: 100%;
 
     ${media.mobile`
-        height: 60vh;
+        flex: 5;
     `}
 
     ${media.desktop`
-        height: 70vh;
+        
     `}
 `;
 
 export const AboutSectionParagraph = styled.p`
     ${media.mobile`
-        height: 70%;
         padding-top: ${v.spacing.small};
         font-size: calc(${v.fontSize.xsmall} + 0.10rem);
     `}
@@ -68,20 +74,20 @@ export const TechStackSection = styled(Section)`
     width: 100%;
     
     ${media.mobile`
-        height: 65vh;
+        flex: 5;
         & h3 {
             font-size: calc(${v.fontSize.xsmall} + 0.15rem);
             margin-bottom: ${v.spacing.medium};
         }
     `}
     ${media.tablet`
-        height: 50vh;
+        
     `}
 `;
 
 export const StackContainer = styled.div`
     width: 100%;
-    height: 100%;
+    flex: 2;
     display: grid;
     ${media.mobile`
         grid-template-columns: repeat(3, 1fr);
@@ -109,16 +115,17 @@ export const ProjectSection = styled(Section)`
     width: 100%;
     
     ${media.mobile`
-        height: 50vh;
+        flex: 5;
     `}
 
     ${media.desktop`
-        height: 100vh;
+        
     `}
 `;
 
 export const ProjectCardContainer = styled.div`
     width: 100%;
+    flex: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 50%);
@@ -154,11 +161,11 @@ export const QuickContactSection = styled(Section)`
     width: 100%;
 
     ${media.mobile`
-        height: 60vh;
+        flex: 5;
     `}
 
     ${media.desktop`
-        height: 80vh;
+        
     `}
 `;
 

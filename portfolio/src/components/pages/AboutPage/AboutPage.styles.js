@@ -5,14 +5,19 @@ import Button from 'components/atoms/Button';
 import { media } from 'utils/utils.js';
 
 export const AboutPageWrapper = styled.div`
-    width: 70%;
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
+
     ${media.mobile`
         padding-block: ${v.spacing.medium};
-        padding-inline: 0;
+        padding-inline: ${v.spacing.small};
         width: 85%;
+    `}
+        ${media.tablet`
+        padding-block: ${v.spacing.medium};
+        padding-inline: ${v.spacing.small};
+        width: 75%;
     `}
 `;
 
@@ -20,12 +25,12 @@ export const HistorySection = styled(Section)`
     width: 100%;
     
     ${media.mobile`
-        height: 80vh;
+        flex: 1.5;
         margin-bottom: ${v.spacing.large};
     `}
 
     ${media.desktop`
-        height: 70vh;
+        
     `}
 `;
 
@@ -81,7 +86,7 @@ export const ExperienceSection = styled(Section)`
     justify-content: center;
     width: 100%;
     ${media.mobile`
-        height: 75vh;
+        flex: 1.25;
         & h3 {
             font-size: ${v.fontSize.small};
         }

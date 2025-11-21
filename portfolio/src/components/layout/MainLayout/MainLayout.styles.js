@@ -15,10 +15,10 @@ export const MainLayoutWrapper = styled.div`
 export const MainLayoutHeader = styled.header`
     width: 100%;
     ${media.mobile`
-        height: 7.5vh;
+        min-height: 7.5vh;
     `}
     ${media.tablet`
-        height: 10vh;
+        min-height: 10vh;
     `}    
     position: relative;
     top: 0;
@@ -27,9 +27,8 @@ export const MainLayoutHeader = styled.header`
 
 export const MainLayoutContent = styled.main`
     display: flex;
-    justify-content: center;
     width: 100%;
-    min-height: 50vh;
+    min-height: 100vh;
     grid-row: 2/3;
 `;
 
@@ -42,10 +41,10 @@ export const MainLayoutFooter = styled.footer`
     flex-direction: column;
     justify-content: center;
     ${media.mobile`
-        height: 5vh;
+        min-height: 5vh;
     `}
     ${media.tablet`
-        height: 10vh;
+        min-height: 10vh;
     `}    
 `;
 
