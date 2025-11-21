@@ -15,18 +15,17 @@ export const ContactPageWrapper = styled.div`
         padding-inline: ${v.spacing.small};
         width: 85%;
     `}
-        ${media.tablet`
-        padding-block: ${v.spacing.medium};
-        padding-inline: ${v.spacing.small};
+    ${media.tablet`
+        padding-block: ${v.spacing.large};
+        padding-inline: ${v.spacing.large};
         width: 75%;
     `}
 `;
 
 export const ContactSection = styled(Section)`
     width: 100%;
+    flex: 1;
     ${media.mobile`
-        flex: 1;
-
         & h3 {
             font-size: ${v.fontSize.small};
             margin-top: ${v.spacing.small};
@@ -66,6 +65,7 @@ export const ContactContainer = styled(Link)`
     padding: ${v.spacing.small};
     color: ${({theme}) => theme.text};
     text-decoration: none;
+    border: 2px solid red;
 `;
 
 export const IconContainer = styled.div`
@@ -73,6 +73,7 @@ export const IconContainer = styled.div`
     height: 100%;
     display: flex;
     align-content: center;
+    border: 2px solid red;
     
     & svg {
         width: 100%;
@@ -81,9 +82,15 @@ export const IconContainer = styled.div`
 `;
 
 export const InformationContainer = styled.div`
-    width: 65%;
+    width: 75%;
     height: 100%;
-    padding-left: ${v.spacing.small};
+    margin-left: ${v.spacing.small};
+    padding: ${v.spacing.xxsmall};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid blue;
 `;
 
 export const InformationTitle = styled.p`
@@ -93,8 +100,9 @@ export const InformationTitle = styled.p`
     width: 100%;
     font-weight: ${v.fontWeight.bolder};
     font-size: ${v.fontSize.medium};
-    margin-bottom: ${v.spacing.small};
-    font-family: ${v.fonts.tertiary};  
+    font-family: ${v.fonts.tertiary};
+    margin: 0;
+    border: 2px solid red; 
 `;
 
 export const Information = styled(InformationTitle)`

@@ -14,9 +14,9 @@ export const AboutPageWrapper = styled.div`
         padding-inline: ${v.spacing.small};
         width: 85%;
     `}
-        ${media.tablet`
-        padding-block: ${v.spacing.medium};
-        padding-inline: ${v.spacing.small};
+    ${media.tablet`
+        padding-block: ${v.spacing.large};
+        padding-inline: ${v.spacing.large};
         width: 75%;
     `}
 `;

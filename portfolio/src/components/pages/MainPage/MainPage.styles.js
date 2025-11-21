@@ -17,9 +17,9 @@ export const MainPageWrapper = styled.div`
         padding-inline: ${v.spacing.small};
         width: 85%;
     `}
-        ${media.tablet`
-        padding-block: ${v.spacing.medium};
-        padding-inline: ${v.spacing.small};
+    ${media.tablet`
+        padding-block: ${v.spacing.large};
+        padding-inline: ${v.spacing.large};
         width: 75%;
     `}
 `;
@@ -32,14 +32,20 @@ export const AboutSection = styled(Section)`
     `}
 
     ${media.desktop`
-        
+        flex: 4;
     `}
 `;
 
 export const AboutSectionParagraph = styled.p`
+    flex: 1;
     ${media.mobile`
         padding-top: ${v.spacing.small};
         font-size: calc(${v.fontSize.xsmall} + 0.10rem);
+    `}
+    ${media.tablet`
+        
+        font-size: calc(${v.fontSize.small} + 0.1rem);
+        line-height: calc(${v.spacing.large} + 0.1rem);
     `}
 `;
 
@@ -49,6 +55,14 @@ export const ViewButtonContainer = styled.div`
         width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
+    `}
+    ${media.tablet`
+        height: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     `}
 `;
 
@@ -56,18 +70,24 @@ export const ViewAbout = styled(Button)`
     &.view-about{
         background-color: ${({theme}) => theme.blue};
         height: 100%;
-        ${media.mobile`
-            width: 75%;
-        `}
         border-radius: ${v.borderRadius.medium};
     }
     &:hover{
         background-color: ${({theme}) => theme.blue2};
     }
     
-    & span {
-        font-size: ${v.fontSize.small};
-    }
+    ${media.mobile`
+        width: 75%;
+        & span {
+            font-size: ${v.fontSize.small};
+        }
+    `}
+    ${media.tablet`
+        width: 50%;
+        & span {
+            font-size: calc(${v.fontSize.medium} - 0.1rem);
+        }
+    `}
 `;
 
 export const TechStackSection = styled(Section)`
@@ -81,7 +101,7 @@ export const TechStackSection = styled(Section)`
         }
     `}
     ${media.tablet`
-        
+        flex: 3;
     `}
 `;
 
@@ -89,15 +109,16 @@ export const StackContainer = styled.div`
     width: 100%;
     flex: 2;
     display: grid;
+    grid-template-rows: auto;
     ${media.mobile`
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
+        gap: ${v.spacing.xxsmall};
     `}
     ${media.tablet`
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
+        gap: ${v.spacing.small};
     `}
-    gap: ${v.spacing.xxsmall};
+    
 `;
 
 export const StyledStackCard = styled(StackCard)`

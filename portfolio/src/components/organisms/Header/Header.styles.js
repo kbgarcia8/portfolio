@@ -7,19 +7,18 @@ import { media } from "utils/utils";
 export const HeaderWrapper = styled.div`
     width: 100%;
     height: 100%;
-    display: flex;    
+    display: flex;
+    justify-content: space-between;
     border-bottom: ${v.borderThickness.light} solid ${({theme}) => theme.text};
     box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
     -webkit-box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
     -moz-box-shadow: -1px 10px 5px 1px rgba(174,174,174,0.75);
 
     ${media.mobile`
-        justify-content: space-between;
         padding-inline: ${v.spacing.medium};
     `}
 
-    ${media.tablet`
-        justify-content: space-around;
+    ${media.desktop`
         padding-inline: ${v.spacing.large};
     `}
 `;
@@ -27,7 +26,6 @@ export const HeaderWrapper = styled.div`
 export const HeaderLogo = styled(Link)`
     display: flex;
     justify-content: center;
-    height: 100%;
     padding: ${v.spacing.xxsmall};
     cursor: pointer;
     transtiion: transform 0.3s ease;
@@ -41,14 +39,14 @@ export const HeaderLogo = styled(Link)`
     ${media.mobile`
         width: 35%;    
         &:hover {
-            transform: scale(1.0625)
+            transform: scale(1.0625);
         }
     `}
 
     ${media.tablet`
-        width: 20%;
+        width: 25%;
         &:hover {
-            transform: scale(1.125)
+            transform: scale(1.125);
         }
     `}
 `;

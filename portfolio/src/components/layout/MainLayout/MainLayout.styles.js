@@ -13,16 +13,16 @@ export const MainLayoutWrapper = styled.div`
 `;
 
 export const MainLayoutHeader = styled.header`
+    position: relative;
+    top: 0;
+    grid-row: 1/2;
     width: 100%;
     ${media.mobile`
         min-height: 7.5vh;
     `}
-    ${media.tablet`
-        min-height: 10vh;
-    `}    
-    position: relative;
-    top: 0;
-    grid-row: 1/2;
+    ${media.desktop`
+        min-height: 7.5vh;
+    `}
 `;
 
 export const MainLayoutContent = styled.main`

@@ -59,12 +59,21 @@ export const ProjectTitle = styled.h4`
 export const ProjectDescription = styled.p`
     width: 100%;
     overflow-y: hidden;
+    text-overflow: ellipsis;
     
     ${media.mobile`
         height: 50%;
         line-height: ${v.spacing.small};
         padding: ${v.spacing.xxsmall};
         font-size: ${v.fontSize.xxsmall};
+        margin-bottom: 0;
+    `}
+    ${media.tablet`
+        border: 2px solid red;
+        height: 50%;
+        line-height: ${v.spacing.medium};
+        padding: ${v.spacing.xsmall};
+        font-size: ${v.fontSize.small};
         margin-bottom: 0;
     `}
     
