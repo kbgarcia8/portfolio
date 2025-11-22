@@ -90,7 +90,7 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const ContactPage = () => {
 
     const [contactFormValues,setContactFormValues] = React.useState(initialContactFormValues);
-    const [debouncedContactFormValues, setDebouncedContactFormValues] = React.useState(initialContactFormValues);
+    const [debouncedContactFormValues, setDebouncedContactFormValues] = React.useState(initialContactFormValues); // eslint-disable-line no-unused-vars
 
     const handleContactFormChange = React.useCallback((e) => {
         const { keyname } = e.currentTarget.dataset;
@@ -121,7 +121,7 @@ const ContactPage = () => {
                 "data-keyname": input.id,
             }
         }));
-    },[contactFormValues]);
+    },[contactFormValues, handleContactFormChange]);
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
