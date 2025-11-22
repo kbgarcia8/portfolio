@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Styled from './AboutPage.styles.js';
 import Divider from 'components/atoms/Divider';
-import { useTheme } from 'context/ThemeContext.jsx';
+import useTheme from 'context/useTheme.js';
 import xinyx from 'assets/xinyx.png';
 import questronix from 'assets/questronix.png';
 import analog from 'assets/analog.png';

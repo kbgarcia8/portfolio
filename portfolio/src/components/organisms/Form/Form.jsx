@@ -181,7 +181,7 @@ const validateEditableData = (props, propName, componentName) => {
             // ? check if there is an editing property in input object if it is editable
             if (
                 typeof input !== "object" ||
-                !input.hasOwnProperty("editing") ||
+                Object.prototype.hasOwnProperty.call(input,'editing') === false ||
                 typeof input.editing !== "boolean"
             ) {
                 return new Error(
@@ -204,7 +204,7 @@ const validateEditableData = (props, propName, componentName) => {
         if (input.type === "radio") {
             if (
                 typeof input !== "object" ||
-                !input.hasOwnProperty("checked") ||
+                Object.prototype.hasOwnProperty.call(input,'checked') === false ||
                 typeof input.checked !== "boolean"
             ) {
                 return new Error(

@@ -15,7 +15,7 @@ export const Thumb = styled(Switch.Thumb)`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-out;
 
     ${media.mobile`
       background: ${({theme}) => theme.bg};

@@ -2,7 +2,7 @@ import React from "react";
 import emailjs from 'emailjs-com';
 import Divider from "components/atoms/Divider";
 import * as Styled from './MainPage.styles.js';
-import { useTheme } from "context/ThemeContext.jsx";
+import useTheme from 'context/useTheme.js';
 import { useNavigate } from "react-router-dom";
 //* Icons
 import { FaPython } from "react-icons/fa6";
@@ -142,7 +142,7 @@ const MainPage = () => {
                 "data-keyname": input.id,
             }
         }));
-    },[contactFormValues]);
+    },[contactFormValues, handleContactFormChange]);
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();

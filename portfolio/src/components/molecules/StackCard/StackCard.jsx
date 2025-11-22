@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as Styled from './StackCard.styles.js';
-import { useTheme } from "context/ThemeContext.jsx";
+import useTheme from 'context/useTheme.js';
 import { isLightColor } from "utils/utils.js";
 
 const StackCard = ({
