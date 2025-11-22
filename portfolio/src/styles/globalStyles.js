@@ -7,8 +7,35 @@ import proxima from 'fonts/Proximanova-Regular.ttf';
 import { lightTheme, darkTheme } from './theme.js';
 import { media } from 'utils/utils.js';
 
-//INFO: rem comes from root size which is in html
-//ALERT: Scalable font-size should be in html only and not in body
+// ? rem comes from root size which is in html
+// ! Scalable font-size should be in html only and not in body
+
+// ! FLEXBOX LAYOUT RULES — IMPORTANT
+// * Always apply `display: flex` to the PARENT, never the children.
+// * When building UI layouts, use `flex-direction: column` for vertical stacking.
+
+// ? CHILD FLEX RULE
+// * Children can use `flex: <n>`
+// * The value <n> represents how much of the available space the child should take.
+// ? Example:
+//      flex: 1   → takes “1 part” of the available height
+//      flex: 2   → takes “2 parts”, meaning twice the height of a flex: 1 sibling
+// ? Think of the parent as being divided into fractions:
+//      If children use flex: 1, 2, 1 → total = 4 parts
+//      Each child gets height based on its ratio of the total.
+//
+// * flex: <n> is extremely useful for orientation changes (mobile → desktop)
+// * Because the fractions automatically recalc when screen size changes.
+
+// ! WHAT NOT TO DO
+// * Do NOT put `display: flex` on html or body for general page layout.
+//     → This causes weird centering, collapsing widths, and unexpected spacing.
+// * Instead, put layout flex rules in the top-level container (ex: #root or App wrapper).
+
+// ! BODY + HTML BEST PRACTICES
+// * html → only set font-size and global resets
+// * body → avoid flex; just set margin: 0 and min-height: 100vh
+// * #root or main container → handle all flex-based page layout
 
 const GlobalStyle = createGlobalStyle`
 *, *::before, *::after {
