@@ -172,13 +172,13 @@ const Form = ({
     );
 }
 
-//*Props Validation
+//* Props Validation
 const validateEditableData = (props, propName, componentName) => {
     const inputs = props.fieldsets?.flatMap(fieldset => fieldset.inputs) || [];
 
     for (const input of inputs) {
         if (input.editable) {
-            //INFO: check if there is an editing property in input object if it is editable
+            // ? check if there is an editing property in input object if it is editable
             if (
                 typeof input !== "object" ||
                 !input.hasOwnProperty("editing") ||
@@ -189,7 +189,7 @@ const validateEditableData = (props, propName, componentName) => {
                 );
             }
 
-            //INFO: Ensure required editable-related props are present
+            // ! Ensure required editable-related props are present
             const requiredProps = ["onclickedit", "editicon", "onclickdelete", "deleteicon", "onclicksave", "onclickcancel"];
             for (const key of requiredProps) {
                 if (typeof input[key] === "undefined") {
@@ -200,7 +200,7 @@ const validateEditableData = (props, propName, componentName) => {
             }
         }
 
-        //INFO: If input type is a radio must have a checked porperty
+        // ? If input type is a radio must have a checked porperty
         if (input.type === "radio") {
             if (
                 typeof input !== "object" ||
@@ -215,7 +215,7 @@ const validateEditableData = (props, propName, componentName) => {
     }
     return null;
 };
-//INFO: PropTypes by default are considered function that takes argument as follows: function/PropTypes (props, propName, componentName, location, propFullName)
+// ! PropTypes by default are considered function that takes argument as follows: function/PropTypes (props, propName, componentName, location, propFullName)
 const inputShape = PropTypes.arrayOf(
     PropTypes.shape({
     uniqueClass: PropTypes.string,
@@ -241,7 +241,7 @@ const inputShape = PropTypes.arrayOf(
     ),
     dataAttributes: PropTypes.object,
     onchange: PropTypes.func,
-    /* Props below are required when input is editable */
+    // ? Props below are required when input is editable
     onClickEdit: PropTypes.func,
     editIcon: PropTypes.element,
     onClickDelete: PropTypes.func,
@@ -253,7 +253,7 @@ const inputShape = PropTypes.arrayOf(
 
 Form.propTypes = {
     fieldsets: (props, propName, componentName) => {
-        //INFO: PropTypes.checkPropTypes(propTypes, props, propName, componentName, location, propFullName);
+        // ? PropTypes.checkPropTypes(propTypes, props, propName, componentName, location, propFullName);
         const propTypesError = PropTypes.checkPropTypes(
             {
                 fieldsets: PropTypes.arrayOf(

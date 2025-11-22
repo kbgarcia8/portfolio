@@ -123,7 +123,7 @@ const MainPage = () => {
         navigate("/about");
     }, [navigate]);
 
-    // INFO: Debounced state is used for optimization, by delaying the update of state
+    // ? Debounced state is used for optimization, by delaying the update of state
     React.useEffect(()=> {
         const debounceInputTimeout = setTimeout(() => {
             setDebouncedContactFormValues(contactFormValues);
@@ -131,7 +131,7 @@ const MainPage = () => {
         return () => clearTimeout(debounceInputTimeout);
     }, [contactFormValues]);
 
-    // INFO: Debounced state is used for optimization since it is the dependency for useMemo of contactFormInputs
+    // ? Debounced state is used for optimization since it is the dependency for useMemo of contactFormInputs
     const contactFormInputs = React.useMemo(() => {
         return inputs.map((input, index) => ({
             ...input,
@@ -146,7 +146,7 @@ const MainPage = () => {
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
-        // INFO: Send notification to own email
+        // ? Send notification to own email
         emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
@@ -155,7 +155,7 @@ const MainPage = () => {
             alert(`Notification to kbg error: ${error.text}`)
         });
 
-        // INFO: auto-reply to sender of contact/query
+        // ? auto-reply to sender of contact/query
         emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
