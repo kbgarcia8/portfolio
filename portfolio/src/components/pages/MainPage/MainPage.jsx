@@ -10,7 +10,7 @@ import { SiGnubash, SiPerl, SiGoogleappsscript, SiVercel, SiPrisma } from "react
 import { FaFeatherAlt, FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoFirebase } from "react-icons/io5";
 import { VscVscode } from "react-icons/vsc";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
 
 const aboutSectionParagraph = `I'm currently working as a Design Engineer at Xinyx, a semiconductor company with the main task of 
 delivering simulation data of integrated circuits in files with thousands of lines of data. I was introduced to Bash, Perl and Python
@@ -185,6 +185,7 @@ const MainPage = () => {
                     <Styled.StyledStackCard rating={3} text={'Python'} icon={<FaPython/>} bgColor={'#FFE873'}/>
                     <Styled.StyledStackCard rating={2} text={'Tcl'} icon={<FaFeatherAlt/>} bgColor={'#BADA55'}/>
                     <Styled.StyledStackCard rating={3} text={'JavaScript'} icon={<IoLogoJavascript/>} bgColor={'#F0DB4F'}/>
+                    <Styled.StyledStackCard rating={2} text={'Typescript'} icon={<BiLogoTypescript/>} bgColor={'#007ACC'}/>
                     <Styled.StyledStackCard rating={2} text={'Google Apps Script'} icon={<SiGoogleappsscript/>} bgColor={'#EA4335'} textColor={`${currentTheme.bg}`}/>
                     <Styled.StyledStackCard rating={3} text={'HTML5'} icon={<FaHtml5/>} bgColor={'#F06529'} textColor={`${currentTheme.bg}`}/>
                     <Styled.StyledStackCard rating={3} text={'CSS'} icon={<FaCss3/>} bgColor={'#663399'} textColor={`${currentTheme.bg}`}/>

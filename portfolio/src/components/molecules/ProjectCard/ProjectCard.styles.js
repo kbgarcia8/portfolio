@@ -69,7 +69,6 @@ export const ProjectDescription = styled.p`
         margin-bottom: 0;
     `}
     ${media.tablet`
-        border: 2px solid red;
         height: 50%;
         line-height: ${v.spacing.medium};
         padding: ${v.spacing.xsmall};
