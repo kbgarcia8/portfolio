@@ -15,7 +15,6 @@ const inputs = [
         id: "name",
         placeholder: "Name of Sender",
         icon: '',
-        value: "",
         type: "text",
         required: true,
         disabled: false,
@@ -31,7 +30,6 @@ const inputs = [
         id: "email",
         placeholder: "Email of Sender",
         icon: '',
-        value: "",
         type: "email",
         required: true,
         disabled: false,
@@ -47,7 +45,6 @@ const inputs = [
         id: "title",
         placeholder: "Project Title or Subject",
         icon: '',
-        value: "",
         type: "text",
         required: true,
         disabled: false,
@@ -90,7 +87,6 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const ContactPage = () => {
 
     const [contactFormValues,setContactFormValues] = React.useState(initialContactFormValues);
-    const [debouncedContactFormValues, setDebouncedContactFormValues] = React.useState(initialContactFormValues); // eslint-disable-line no-unused-vars
 
     const handleContactFormChange = React.useCallback((e) => {
         const { keyname } = e.currentTarget.dataset;
@@ -101,16 +97,7 @@ const ContactPage = () => {
             [keyname]: currentValue
         }));
     }, []);
-
-    // ? Debounced state is used for optimization, by delaying the update of state
-    React.useEffect(()=> {
-        const debounceInputTimeout = setTimeout(() => {
-            setDebouncedContactFormValues(contactFormValues);
-        }, 500);
-        return () => clearTimeout(debounceInputTimeout);
-    }, [contactFormValues]);
-
-    // ? Debounced state is used for optimization since it is the dependency for useMemo of contactFormInputs
+    
     const contactFormInputs = React.useMemo(() => {
         return inputs.map((input, index) => ({
             ...input,

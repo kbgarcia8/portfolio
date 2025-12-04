@@ -6,7 +6,6 @@ import { media } from "utils/utils";
 
 export const HeaderWrapper = styled.div`
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: space-between;
     border-bottom: ${v.borderThickness.light} solid ${({theme}) => theme.text};
@@ -16,9 +15,13 @@ export const HeaderWrapper = styled.div`
 
     ${media.mobile`
         padding-inline: ${v.spacing.medium};
+        height: 100%;
     `}
-
+    ${media.tablet`
+        height: 85%;
+    `}
     ${media.desktop`
+        height: 100%;
         padding-inline: ${v.spacing.large};
     `}
 `;
@@ -51,17 +54,20 @@ export const HeaderLogo = styled(Link)`
     `}
 `;
 
-export const HeaderTextLogo = styled.p`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-    height: 100%;
-    font-family: ${v.fonts.additional}, ${v.fonts.fallback};
-    font-size: ${v.fontSize.xxlarge};
-    font-weight: ${v.fontWeight.bold};
+export const HeaderTextLogo = styled.img`
+    height: auto;
     border: ${v.borderThickness.thick} double ${({theme}) => theme.teal};
     border-radius: ${v.borderRadius.large};
+
+    ${media.mobile`
+        width: 50%;
+    `}
+    ${media.tablet`
+        width: 50%;
+    `}
+    ${media.desktop`
+        width: 25%;
+    `}
 `;
 
 export const HeaderNavbar = styled(Navbar)`

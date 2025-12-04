@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <Styled.HeaderWrapper>
             <Styled.HeaderLogo>
-                <Styled.HeaderTextLogo to={'/'}>{'kbg'}</Styled.HeaderTextLogo>
+                <Styled.HeaderTextLogo to={"/"} src={"/kbg.png"}/>
             </Styled.HeaderLogo>
             <Styled.HeaderNavbar className={'header-navbar'} links={links}/>
             <Styled.ThemeToggleButtonSpace>
