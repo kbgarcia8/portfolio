@@ -5,6 +5,7 @@ import * as Styled from './MainPage.styles.js';
 import useTheme from 'context/useTheme.js';
 import { useNavigate } from "react-router-dom";
 //* Icons
+import NPMPackage from 'assets/npm.png'
 import { FaPython } from "react-icons/fa6";
 import { SiGnubash, SiPerl, SiGoogleappsscript, SiVercel, SiPrisma } from "react-icons/si";
 import { FaFeatherAlt, FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
@@ -190,7 +191,7 @@ const MainPage = () => {
             <Divider/>
             <Styled.ProjectSection title={'Personal Projects'} description={'Projects I have completed during my self-learning journey.'}>
                 <Styled.ProjectCardContainer>
-                    <Styled.StyledProjectCard href={'/'} title={'Mockup Project 1'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
+                    <Styled.StyledProjectCard href={'https://www.npmjs.com/package/@kbgarcia8/react-dynamic-form'} thumbnail={NPMPackage} title={'@kbgarcia8/rect-dynamic-form'} description={'Reusable React dynamic form showcasing editable, expandable and flexible inputs'}/>
                     <Styled.StyledProjectCard href={'/'} title={'Mockup Project 2'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
                     <Styled.StyledProjectCard href={'/'} title={'Mockup Project 3'} description={'This is a mockup project card and to be filled with a real project in the future'}/>
                     <Styled.StyledProjectCard href={'/'} title={'Mockup Project 4'} description={'This is a mockup project card and to be filled with a real project in the future'}/>

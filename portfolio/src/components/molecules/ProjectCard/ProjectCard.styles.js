@@ -42,6 +42,7 @@ export const ProjectThumbnailContainer = styled.a`
 
 export const ProjectThumbnail = styled.img`
     width: 100%;
+    height: 100%;
 `;
 
 export const ProjectTitle = styled.h4`
