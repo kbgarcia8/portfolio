@@ -5,6 +5,7 @@ import { TfiEmail } from "react-icons/tfi";
 import { CiMobile3 } from "react-icons/ci";
 import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { toast } from "react-toastify";
 
 
 const inputs = [
@@ -112,11 +113,16 @@ const ContactPage = () => {
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
+        if(!contactFormValues['email'] || !contactFormValues['description']) {
+            toast.error('Please provide both email and description')
+            return;
+        }
+
         // ? Send notification to own email
         emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
-            alert('Email sent to kbg successfully')
+            toast.success('Email sent to kbg successfully');
         }, (error) => {
             alert(`Notification to kbg error: ${error.text}`)
         });
@@ -125,9 +131,10 @@ const ContactPage = () => {
         emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
-            alert('Email sent to kbg successfully')
+            //alert('Email sent to kbg successfully')
         }, (error) => {
-            alert(`Notification to kbg error: ${error.text}`)
+            //alert(`Notification to kbg error: ${error.text}`)
+            console.log(`Notification to kbg error: ${error.text}`);
         });
 
         setContactFormValues(initialContactFormValues);
