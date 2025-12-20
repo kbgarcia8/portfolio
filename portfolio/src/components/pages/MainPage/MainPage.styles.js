@@ -218,6 +218,7 @@ export const QuickContactForm = styled(Form)`
         outline: none;
         background-color: ${({theme}) => theme.bg};
         border-bottom: ${v.borderThickness.medium} solid ${({theme}) => theme.text};
+        line-height: normal;
     }
 
     .contact-me-form-inputs:hover{

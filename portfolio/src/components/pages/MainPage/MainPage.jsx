@@ -4,6 +4,7 @@ import Divider from "components/atoms/Divider";
 import * as Styled from './MainPage.styles.js';
 import useTheme from 'context/useTheme.js';
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 //* Icons
 import NPMPackage from 'assets/npm.png'
 import { FaPython } from "react-icons/fa6";
@@ -135,11 +136,16 @@ const MainPage = () => {
 
     const handleFormSubmit = React.useCallback((e) => {
         e.preventDefault();
+        if(!contactFormValues['email'] || !contactFormValues['description']) {
+            toast.error('Please provide both email and description')
+            return;
+        }
+
         // ? Send notification to own email
         emailjs.send(serviceId, notifyMeTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
-            alert('Email sent to kbg successfully')
+            toast.success('Email sent to kbg successfully');
         }, (error) => {
             alert(`Notification to kbg error: ${error.text}`)
         });
@@ -148,9 +154,10 @@ const MainPage = () => {
         emailjs.send(serviceId, autoReplyTemplate, contactFormValues, publicKey)
         .then((result) => {
             console.log(result.text);
-            alert('Email sent to kbg successfully')
+            //alert('Email sent to kbg successfully')
         }, (error) => {
-            alert(`Notification to kbg error: ${error.text}`)
+            //alert(`Notification to kbg error: ${error.text}`)
+            console.log(`Notification to kbg error: ${error.text}`);
         });
 
         setContactFormValues(initialContactFormValues);
